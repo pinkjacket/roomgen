@@ -140,5 +140,8 @@ function furntiure (name, type, size, onTop, inside) {
 
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
-
+  $("form#room").submit(function(event){
+    event.preventDefault();
+    
+  })
 });
