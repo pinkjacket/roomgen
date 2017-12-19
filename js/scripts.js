@@ -234,10 +234,16 @@ function spaceFill(space, stuff){
 Furniture.prototype.populate =function(){
 
 }
+
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
   $("form#room").submit(function(event){
     event.preventDefault();
+
+    $("#result").empty();
+    var room = makeRoom();
+    $("#result").append(room);
+    $("#result").fadeIn();
 
   })
 
