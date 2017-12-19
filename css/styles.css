@@ -1,0 +1,9 @@
+body {
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+#result {
+  display: none;
+  margin-top: 10px;
+}

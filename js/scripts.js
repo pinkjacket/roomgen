@@ -117,6 +117,14 @@ function Bench (onTop) {
   this.size = 4;
   this.onTop = onTop;
 }
+/*
+function furntiure (name, type, size, onTop, inside) {
+  this.name: name;
+  this.type: type;
+  this.size: size;
+  this.onTop: onTop
+  this.inside: inside;
+}*/
 
 // var furniture = function(name, size, onTop) {
 //   this.name = name;
@@ -173,5 +181,8 @@ var alchemist = new Item ("1", "projectile", "Wine");
 
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
-
+  $("form#room").submit(function(event){
+    event.preventDefault();
+    
+  })
 });
