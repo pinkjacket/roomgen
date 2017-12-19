@@ -5,13 +5,13 @@ function randPick(arr){
 
 function dice(){
   var diceRoll1 = Math.floor((Math.random()*10)+1)
-  var diceRoll2 = Math.floor((Math.random()*10)+1)
+  //var diceRoll2 = Math.floor((Math.random()*10)+1)
   return diceRoll1;
-  return diceRoll2;
+  //return diceRoll2;
 }
 
-function size(roomSize){
-  var roomSize = (diceRoll1 * diceRoll2);
+function size(){
+  var roomSize = (dice() * dice());
   console.log(roomSize)
   return roomSize;
 
@@ -20,7 +20,9 @@ function size(roomSize){
 //1 space represents a 5ft * 5ft square
 
 
+
 //logic for how long
+<<<<<<< HEAD
 var space = 30
 var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 var furnitureArray[];
@@ -31,9 +33,22 @@ function spaceFill(space, stuff){
 
 
   for(var i=0; i<stuff.length; i++){
+=======
+var space = size();
+//var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
+
+
+var stuff = [new Chair, new Table, new Bed, new Chest]
+
+
+
+function spaceFill(space, stuff){
+  var area = space;
+  var contain = [];
+  for(var i=0; i < (stuff.length); i++){
+>>>>>>> 4a2a4b9c0fe36c49dd4fd8597d797d085159c721
     var thing = stuff[i];
     //each thing in furniture will be an object with a size property
-
     if (thing.size > area){
       return contain;
     } else {
@@ -41,40 +56,102 @@ function spaceFill(space, stuff){
       area -= thing.size;
     }
   }
-
-  return area;
+  console.log(contain);
 }
 
-console.log(spaceFill(space));
+console.log(spaceFill(space, stuff));
 
 //Object Definitions-------------------------------------
-var chair = function(onTop) {
-  this.size: 1;
+function Chair (onTop) {
+  this.size = 1;
+  this.onTop = onTop;
+}
+
+function Throne (onTop) {
+  this.size = 2;
+  this.onTop = onTop;
+}
+
+function Table (onTop) {
+  this.size = 4;
+  this.onTop = onTop;
+}
+
+function Bed (onTop) {
+  this.size = 6;
+  this.onTop = onTop;
+}
+
+function Chest (inside) {
+  this.size = 2;
+  this.inside = inside;
+}
+
+function Armoire (inside) {
+  this.size = 3;
+  this.inside = inside;
+}
+
+
+function Couch (onTop) {
+  this.size = 4;
+  this.onTop = onTop;
+}
+
+function NightStand (onTop, inside) {
+  this.size = 1;
+  this.onTop = onTop;
+  this.inside = inside;
+}
+
+function ChestOfDrawers (onTop, inside) {
+  this.size = 4;
+  this.onTop = onTop;
+  this.inside = inside;
+}
+
+function Counter (onTop, inside) {
+  this.size = 1;
+  this.onTop = onTop;
+  this.inside = inside;
+}
+
+function Desk (onTop, inside) {
+  this.size = 3;
+  this.onTop = onTop;
+  this.inside = inside;
+}
+
+function Ottoman () {
+  this.size = 1;
+}
+
+function Bench (onTop) {
+  this.size = 4;
+  this.onTop = onTop;
+}
+/*
+function furntiure (name, type, size, onTop, inside) {
+  this.name: name;
+  this.type: type;
+  this.size: size;
   this.onTop: onTop
-}
-
-var table = function(onTop) {
-  this.size: 4;
-  this.onTop: onTop
-}
-
-var bed = function(onTop) {
-  this.size: 6;
-  this.onTop: onTop
-}
-
-var chest = function(inside) {
-  this.size: 2;
-  this.inside: inside
-}
-
-var armoire = function(inside) {
-  this.size: 3;
   this.inside: inside;
-}
+}*/
+
+// var furniture = function(name, size, onTop) {
+//   this.name = name;
+//   this.size = size;
+//   this.onTop = 0;
+//   this.inside = 0;
+//   this.under = 0;
+// }
+
+//chair = new furniture ()
 
 //items
 var itemArray = [];
+console.log(itemArray);
 
 function Item(space, type, name) {
   this.space = 0;
@@ -197,13 +274,10 @@ var maulTitans = new Item ("8", "magic", "Maul of the Titans");
 
 
 
-
-
-
-// var furntiure = function(name, size, onTop) {
-//   this.name: name;
-//   this.size: size;
-//   this.onTop: onTop
-// }
-
 //FRONT END BELOW THIS LINE------------------------------
+$(document).ready(function(){
+  $("form#room").submit(function(event){
+    event.preventDefault();
+    
+  })
+});
