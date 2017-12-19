@@ -119,7 +119,6 @@ function bench (onTop) {
   this.size: 4;
   this.onTop: onTop;
 }
-<<<<<<< HEAD
 /*
 function furntiure (name, type, size, onTop, inside) {
   this.name: name;
@@ -128,7 +127,6 @@ function furntiure (name, type, size, onTop, inside) {
   this.onTop: onTop
   this.inside: inside;
 }*/
-=======
 
 // var furniture = function(name, size, onTop) {
 //   this.name = name;
@@ -144,4 +142,3 @@ function furntiure (name, type, size, onTop, inside) {
 $(document).ready(function(){
 
 });
->>>>>>> 0b7a5c0a165820857351f24976d90e73b9734d1c
