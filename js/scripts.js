@@ -175,6 +175,7 @@ var book = new Item (1, "tool", "Book of Tales");
 var candle = new Item (1, "tool", "Candle");
 var spyGlass = new Item (1, "tool", "Spy Glass");
 var rope = new Item (1, "tool", "Rope");
+var silkRope = new Item (1, "tool", "Silk Rope")
 var alchemist = new Item (1, "projectile", "Alchemist's Fire");
 var holyWater = new Item (1, "projectile", "Holy Water");
 var thunderStone = new Item (1, "projectile", "Thunderstone");
@@ -253,6 +254,22 @@ var harpCharming = new Item (3, "magic", "Harp of Charming");
 var hatDisguise = new Item (2, "magic", "Hat of Disguise");
 var instantFortress = new Item (1, "magic", "Instant Fortress");
 var maulTitans = new Item (8, "magic", "Maul of the Titans");
+var potionWounds = new Item (1, "potion", "Cure light wounds (Potion)");
+var potionElements = new Item (1, "potion", "Endure Elements (Potion)");
+var potionAnimal = new Item (1, "potion", "Hide from Animals (Potion)");
+var potionUndead = new Item (1, "potion", "Hide from Undead (Potion)");
+var potionJump = new Item (1, "potion", "Jump (Potion)");
+var potionMage = new Item (1, "potion", "Mage Armor (Potion)");
+var potionFang = new Item (1, "potion", "Magic Fang (Potion)");
+var potionStone = new Item (1, "potion", "Magic Stone (Oil)");
+var potionWeapon = new Item (1, "potion", "Magic Weapon (Oil)");
+var potionFear = new Item (1, "potion", "Remove Fear (Potion)");
+var potionSanctuary = new Item (1, "potion", "Sanctuary (Potion)");
+var potionEnlarge = new Item (1, "potion", "Enlarge Person (Potion)");
+var potionReduce = new Item (1, "potion", "Reduce Person (Potion)");
+var potionAid = new Item (1, "potion", "Aid (Potion)");
+var potionBarkskin = new Item (1, "potion", "Barkskin (Potion)");
+
 
 
 
