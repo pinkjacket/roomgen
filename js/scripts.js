@@ -23,7 +23,7 @@ function size(){
 
 //var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 
-var stuff = [new Chair, new Table, new Bed, new Chest]
+//var stuff = [new Chair, new Table, new Bed, new Chest]
 
 function makeRoom(){
   var newRoom = new Room(size(), "generic");
@@ -36,7 +36,7 @@ function makeRoom(){
 //Object Definitions-------------------------------------
 
 // Furniture contsructor.
-function Furntiure (name, size, onTop, inside) {
+function Furniture (name, size, onTop, inside) {
   this.name = name;
   this.size = size;
   this.onTop = onTop;
@@ -70,6 +70,8 @@ function Item(space, type, name) {
   this.name = name;
   itemArray.push(this);
 }
+
+var itemArray = [];
 
 var cheese = new Item(1, "food", "Cheese");
 var wine = new Item (1, "drink", "Wine");
