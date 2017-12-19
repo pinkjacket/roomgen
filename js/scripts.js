@@ -8,75 +8,75 @@ function dice(){
 }
 //1 space represents a 5ft * 5ft square
 
-var chair = function(onTop) {
+function chair (onTop) {
   this.size: 1;
   this.onTop: onTop;
 }
 
-var throne = function(onTop) {
+function throne (onTop) {
   this.size: 2;
   this.onTop: onTop;
 }
 
-var table = function(onTop) {
+function table (onTop) {
   this.size: 4;
   this.onTop: onTop;
 }
 
-var bed = function(onTop) {
+function bed (onTop) {
   this.size: 6;
   this.onTop: onTop;
 }
 
-var chest = function(inside) {
+function chest (inside) {
   this.size: 2;
   this.inside: inside;
 }
 
-var armoire = function(inside) {
+function armoire (inside) {
   this.size: 3;
   this.inside: inside;
 }
 
-var couch = function(onTop) {
+function couch (onTop) {
   this.size: 4;
   this.onTop: onTop;
 }
 
-var nightStand = function(onTop, inside) {
+function nightStand (onTop, inside) {
   this.size: 1;
   this.onTop: onTop;
   this.inside: inside;
 }
 
-var chestOfDrawers = function(onTop, inside) {
+function chestOfDrawers (onTop, inside) {
   this.size: 4;
   this.onTop: onTop;
   this.inside: inside;
 }
 
-var counter = function(onTop, inside) {
+function counter (onTop, inside) {
   this.size: 1;
   this.onTop: onTop;
   this.inside: inside;
 }
 
-var desk = function(onTop, inside) {
+function desk (onTop, inside) {
   this.size: 3;
   this.onTop: onTop;
-  this.inside = inside;
+  this.inside: inside;
 }
 
-var ottoman = function() {
+function ottoman () {
   this.size: 1;
 }
 
-var bench = function(onTop) {
+function bench (onTop) {
   this.size: 4;
   this.onTop: onTop;
 }
 
-// var furntiure = function(name, size, onTop) {
+// function furntiure (name, size, onTop) {
 //   this.name: name;
 //   this.size: size;
 //   this.onTop: onTop
