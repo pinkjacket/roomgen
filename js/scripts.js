@@ -8,6 +8,7 @@ function dice(){
 }
 //1 space represents a 5ft * 5ft square
 
+
 //logic for how long
 var space = 30
 var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
@@ -33,4 +34,39 @@ function spaceFill(space, stuff){
 
 console.log(spaceFill(space));
 
+//Object Definitions-------------------------------------
+var chair = function(onTop) {
+  this.size: 1;
+  this.onTop: onTop
+}
+
+var table = function(onTop) {
+  this.size: 4;
+  this.onTop: onTop
+}
+
+var bed = function(onTop) {
+  this.size: 6;
+  this.onTop: onTop
+}
+
+var chest = function(inside) {
+  this.size: 2;
+  this.inside: inside
+}
+
+var armoire = function(inside) {
+  this.size: 3;
+  this.inside: inside;
+}
+
+// var furntiure = function(name, size, onTop) {
+//   this.name: name;
+//   this.size: size;
+//   this.onTop: onTop
+// }
+
 //FRONT END BELOW THIS LINE------------------------------
+
+
+
