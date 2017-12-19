@@ -4,8 +4,19 @@ function randPick(arr){
 }
 
 function dice(){
-  return Math.floor((Math.random()*10)+1)
+  var diceRoll1 = Math.floor((Math.random()*10)+1)
+  var diceRoll2 = Math.floor((Math.random()*10)+1)
+  return diceRoll1;
+  return diceRoll2;
 }
+
+function size(roomSize){
+  var roomSize = (diceRoll1 * diceRoll2);
+  console.log(roomSize)
+  return roomSize;
+
+}
+
 //1 space represents a 5ft * 5ft square
 
 
@@ -67,6 +78,7 @@ var armoire = function(inside) {
 // }
 
 //FRONT END BELOW THIS LINE------------------------------
+
 
 
 
