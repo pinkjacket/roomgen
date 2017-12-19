@@ -142,6 +142,6 @@ function furntiure (name, type, size, onTop, inside) {
 $(document).ready(function(){
   $("form#room").submit(function(event){
     event.preventDefault();
-    
+    makeRoom();
   })
 });
