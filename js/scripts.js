@@ -1,3 +1,4 @@
+/*BACK END LOGIC*/
 function randPick(arr){
   //take in an array
   return Math.floor((Math.random()*arr.length)+1)
@@ -49,104 +50,44 @@ function spaceFill(space, stuff){
 console.log(spaceFill(space, stuff));
 
 //Object Definitions-------------------------------------
-function Chair (onTop) {
-  this.size = 1;
-  this.onTop = onTop;
-}
-
-function Throne (onTop) {
-  this.size = 2;
-  this.onTop = onTop;
-}
-
-function Table (onTop) {
-  this.size = 4;
-  this.onTop = onTop;
-}
-
-function Bed (onTop) {
-  this.size = 6;
-  this.onTop = onTop;
-}
-
-function Chest (inside) {
-  this.size = 2;
-  this.inside = inside;
-}
-
-function Armoire (inside) {
-  this.size = 3;
-  this.inside = inside;
-}
 
 
-function Couch (onTop) {
-  this.size = 4;
-  this.onTop = onTop;
-}
-
-function NightStand (onTop, inside) {
-  this.size = 1;
+// Furniture contsructor.
+function Furntiure (name, size, onTop, inside) {
+  this.name = name;
+  this.size = size;
   this.onTop = onTop;
   this.inside = inside;
-}
-
-function ChestOfDrawers (onTop, inside) {
-  this.size = 4;
-  this.onTop = onTop;
-  this.inside = inside;
-}
-
-function Counter (onTop, inside) {
-  this.size = 1;
-  this.onTop = onTop;
-  this.inside = inside;
-}
-
-function Desk (onTop, inside) {
-  this.size = 3;
-  this.onTop = onTop;
-  this.inside = inside;
-}
-
-function Ottoman () {
-  this.size = 1;
-}
-
-function Bench (onTop) {
-  this.size = 4;
-  this.onTop = onTop;
-}
-/*
-function furntiure (name, type, size, onTop, inside) {
-  this.name: name;
-  this.type: type;
-  this.size: size;
-  this.onTop: onTop
-  this.inside: inside;
-}*/
-
-// var furniture = function(name, size, onTop) {
-//   this.name = name;
-//   this.size = size;
-//   this.onTop = 0;
-//   this.inside = 0;
-//   this.under = 0;
-// }
-
-//chair = new furniture ()
-
-//items
-var itemArray = [];
-console.log(itemArray);
-
+  this.onTopArray = [];
+  this.insideArray = [];
+  furnitureArray.push(this);
+};
+//Furniture objects array.
+var furnitureArray = [];
+//Furniture objects.
+var armoire = new Furniture("Armoire", 3, 3, 8);
+var bed = new Furniture("Bed", 6, 10, 2);
+var bench = new Furniture("Bench", 4, 5, 0);
+var chair = new Furniture("Chair", 1, 2, 0);
+var chest = new Furniture("Chest", 2, 7, 10);
+var chestOfDrawers = new Furniture("Chest of Drawers", 4, 3, 8);
+var couch = new Furniture("Couch", 4, 10, 0);
+var counter = new Furniture("Counter", 1, 10, 7);
+var desk = new Furniture("Desk", 3, 10, 7);
+var nightStand = new Furniture("Night Stand", 1, 5, 5);
+var ottoman = new Furniture("Ottoman", 1, 2, 10);
+var table = new Furniture("Table", 4, 10, 0);
+var throne = new Furniture("Throne", 2, 1, 0);
+//Item constructor.
 function Item(space, type, name) {
   this.space = 0;
   this.type = type;
   this.name = name;
   itemArray.push(this);
 }
-
+//Item objects array.
+var itemArray = [];
+//Item objects.
 var cheese = new Item("1", "food", "Cheese");
 var wine = new Item ("1", "drink", "Wine");
 var gold = new Item ("1", "currency", "Gold");
@@ -183,6 +124,6 @@ var alchemist = new Item ("1", "projectile", "Wine");
 $(document).ready(function(){
   $("form#room").submit(function(event){
     event.preventDefault();
-    
+
   })
 });
