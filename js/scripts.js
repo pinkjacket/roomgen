@@ -22,7 +22,6 @@ function size(){
 
 
 //logic for how long
-<<<<<<< HEAD
 var space = 30
 var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 var furnitureArray[];
@@ -33,20 +32,6 @@ function spaceFill(space, stuff){
 
 
   for(var i=0; i<stuff.length; i++){
-=======
-var space = size();
-//var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
-
-
-var stuff = [new Chair, new Table, new Bed, new Chest]
-
-
-
-function spaceFill(space, stuff){
-  var area = space;
-  var contain = [];
-  for(var i=0; i < (stuff.length); i++){
->>>>>>> 4a2a4b9c0fe36c49dd4fd8597d797d085159c721
     var thing = stuff[i];
     //each thing in furniture will be an object with a size property
     if (thing.size > area){
@@ -160,114 +145,114 @@ function Item(space, type, name) {
   itemArray.push(this);
 }
 
-var cheese = new Item("1", "food", "Cheese");
-var wine = new Item ("1", "drink", "Wine");
-var gold = new Item ("1", "currency", "Gold x10");
-var silver = new Item ("1", "currency", "Silver x10");
-var copper = new Item ("1", "currency", "Copper x10");
-var apple = new Item ("1", "food", "Apple");
-var banana = new Item ("1", "food", "Banana");
-var milk = new Item ("1", "drink", "Milk");
-var ale = new Item ("1", "drink", "Ale");
-var coal = new Item ("1", "material", "Coal");
-var iron = new Item ("1", "material", "Iron");
-var wool = new Item ("1", "material", "Wool");
-var tin = new Item ("1", "material", "Tin");
-var chef = new Item ("2", "tool", "Chef's Tools");
-var tome = new Item ("1", "tool", "Tome");
-var cookBook = new Item ("1", "tool", "Cook Book");
-var blast = new Item ("2", "tool", "Blasting Kit");
-var repair = new Item ("2", "tool", "Repair Kit");
-var crowbar = new Item ("2", "tool", "Crowbar");
-var lute = new Item ("3", "tool", "Lute");
-var guitar = new Item ("3", "tool", "Guitar");
-var healing = new Item ("2", "tool", "Healing Kit");
-var matches = new Item ("1", "tool", "Matches");
-var torch = new Item ("1", "tool", "Torch");
-var forgery = new Item ("2", "tool", "Forgery Kit");
-var spice = new Item ("2", "tool", "Spice Kit");
-var book = new Item ("1", "tool", "Book of Tales");
-var candle = new Item ("1", "tool", "Candle");
-var spyGlass = new Item ("1", "tool", "Spy Glass");
-var rope = new Item ("1", "tool", "Rope");
-var alchemist = new Item ("1", "projectile", "Alchemist's Fire");
-var holyWater = new Item ("1", "projectile", "Holy Water");
-var thunderStone = new Item ("1", "projectile", "Thunderstone");
-var dagger = new Item ("1", "weapon", "Dagger");
-var sickle = new Item ("1", "weapon", "Sickle");
-var gauntlet = new Item ("1", "weapon", "Gauntlet");
-var mace = new Item ("2", "weapon", "Mace");
-var club = new Item ("2", "weapon", "Club");
-var shortspear = new Item ("3", "weapon", "Shortspear");
-var longspear = new Item ("5", "weapon", "Longspear");
-var quarterstaff = new Item ("4", "weapon", "Quarterstaff");
-var crossbow = new Item ("3", "weapon", "Crossbow");
-var bolt = new Item ("1", "projectile", "Crossbow Bolts x10");
-var dart = new Item ("1", "projectile", "Darts x10");
-var sling = new Item ("2", "weapon", "Sling");
-var lhammer = new Item ("3", "weapon", "Light Hammer");
-var handaxe = new Item ("2", "weapon", "Hand Axe");
-var battleaxe = new Item ("4", "weapon", "Battleaxe");
-var flail = new Item ("3", "weapon", "Flail");
-var longsword = new Item ("4", "weapon", "Longsword");
-var scimitar = new Item ("3", "weapon", "Scimitar");
-var lightShield = new Item ("3", "armor", "Light Shield");
-var heavyShield = new Item ("5", "armor", "Heavy Shield");
-var trident = new Item ("4", "weapon", "Trident");
-var warhammer = new Item ("4", "weapon", "Warhammer");
-var greateaxe = new Item ("6", "weapon", "Greataxe");
-var falchion = new Item ("5", "weapon", "Falchion");
-var greatclub = new Item ("6", "weapon", "Greatclub");
-var greatsword = new Item ("6", "weapon", "Greatsword");
-var halberd = new Item ("6", "weapon", "Halberd");
-var longbow = new Item ("5", "weapon", "Longbow");
-var shortbow = new Item ("3", "weapon", "Shortbow");
-var arrows = new Item ("1", "projectile", "Arrows x20");
-var dagger = new Item ("1", "weapon", "Dagger");
-var lance = new Item ("5", "weapon", "Lance");
-var paddedArmor = new Item ("3", "armor", "Padded Armor");
-var leatherArmor = new Item ("3", "armor", "Leather Armor");
-var studdedArmor = new Item ("3", "armor", "Studded Armor");
-var chainShirt = new Item ("3", "armor", "Chain Shirt");
-var hideArmor = new Item ("4", "armor", "Hide Armor");
-var scailMail = new Item ("4", "armor", "Scale Mail");
-var chainMail = new Item ("4", "armor", "Chain Mail");
-var breastplate = new Item ("4", "armor", "Breastplate");
-var splintMail = new Item ("5", "armor", "Splint Mail");
-var bandedMail = new Item ("5", "armor", "Banded Mail");
-var halfPlate = new Item ("5", "armor", "Half-Plate");
-var fullPlate = new Item ("6", "armor", "Full-Plate");
-var buckler = new Item ("2", "armor", "Buckler");
-var amuletHealth = new Item ("1", "magic", "Amulet of Health");
-var amuletPlanes = new Item ("1", "magic", "Amulet of Planes");
-var amuletArmor = new Item ("1", "magic", "Amulet of Natural Armor");
-var amuletFists = new Item ("1", "magic", "Amulet of Mighty Fists");
-var bagHolding = new Item ("2", "magic", "Bag of Holding");
-var bagTricks = new Item ("2", "magic", "Bag of Tricks");
-var beltStrength = new Item ("2", "magic", "Belt of Giant Strength");
-var bootElf = new Item ("2", "magic", "Boots of Elvenkind");
-var bootLevitation = new Item ("2", "magic", "Boots of Levitation");
-var bootWing = new Item ("2", "magic", "Winged Boots");
-var candleTruth = new Item ("1", "magic", "Candle of Truth");
-var capeMountebank = new Item ("2", "magic", "Cape of the Mountebank");
-var carpetFlying = new Item ("3", "magic", "Carpet of Flying");
-var crystalBall = new Item ("2", "magic", "Crystal Ball");
-var cubeForce = new Item ("1", "magic", "Cube of Force");
-var cubeGate = new Item ("1", "magic", "Cubic Gate");
-var darkskull = new Item ("1", "magic", "Darkskull");
-var deckIllusions = new Item ("1", "magic", "Deck of Illusions");
-var elixerFire = new Item ("1", "magic", "Elixer of Fire");
-var elixerHiding = new Item ("1", "magic", "Elixer of Hiding");
-var elixerLove = new Item ("1", "magic", "Elixer of Love");
-var elixerTruth = new Item ("1", "magic", "Elixer of Truth");
-var gemSeeing = new Item ("1", "magic", "Gem of Seeing");
-var gloveStoring = new Item ("2", "magic", "Glove of Storing");
-var handGlory = new Item ("1", "magic", "Hand of Glory");
-var handyHaversack = new Item ("3", "magic", "Handy Haversack");
-var harpCharming = new Item ("3", "magic", "Harp of Charming");
-var hatDisguise = new Item ("2", "magic", "Hat of Disguise");
-var instantFortress = new Item ("1", "magic", "Instant Fortress");
-var maulTitans = new Item ("8", "magic", "Maul of the Titans");
+var cheese = new Item(1, "food", "Cheese");
+var wine = new Item (1, "drink", "Wine");
+var gold = new Item (1, "currency", "Gold x10");
+var silver = new Item (1, "currency", "Silver x10");
+var copper = new Item (1, "currency", "Copper x10");
+var apple = new Item (1, "food", "Apple");
+var banana = new Item (1, "food", "Banana");
+var milk = new Item (1, "drink", "Milk");
+var ale = new Item (1, "drink", "Ale");
+var coal = new Item (1, "material", "Coal");
+var iron = new Item (1, "material", "Iron");
+var wool = new Item (1, "material", "Wool");
+var tin = new Item (1, "material", "Tin");
+var chef = new Item (2, "tool", "Chef's Tools");
+var tome = new Item (1, "tool", "Tome");
+var cookBook = new Item (1, "tool", "Cook Book");
+var blast = new Item (2, "tool", "Blasting Kit");
+var repair = new Item (2, "tool", "Repair Kit");
+var crowbar = new Item (2, "tool", "Crowbar");
+var lute = new Item (3, "tool", "Lute");
+var guitar = new Item (3, "tool", "Guitar");
+var healing = new Item (2, "tool", "Healing Kit");
+var matches = new Item (1, "tool", "Matches");
+var torch = new Item (1, "tool", "Torch");
+var forgery = new Item (2, "tool", "Forgery Kit");
+var spice = new Item (2, "tool", "Spice Kit");
+var book = new Item (1, "tool", "Book of Tales");
+var candle = new Item (1, "tool", "Candle");
+var spyGlass = new Item (1, "tool", "Spy Glass");
+var rope = new Item (1, "tool", "Rope");
+var alchemist = new Item (1, "projectile", "Alchemist's Fire");
+var holyWater = new Item (1, "projectile", "Holy Water");
+var thunderStone = new Item (1, "projectile", "Thunderstone");
+var dagger = new Item (1, "weapon", "Dagger");
+var sickle = new Item (1, "weapon", "Sickle");
+var gauntlet = new Item (1, "weapon", "Gauntlet");
+var mace = new Item (2, "weapon", "Mace");
+var club = new Item (2, "weapon", "Club");
+var shortspear = new Item (3, "weapon", "Shortspear");
+var longspear = new Item (5, "weapon", "Longspear");
+var quarterstaff = new Item (4, "weapon", "Quarterstaff");
+var crossbow = new Item (3, "weapon", "Crossbow");
+var bolt = new Item (1, "projectile", "Crossbow Bolts x10");
+var dart = new Item (1, "projectile", "Darts x10");
+var sling = new Item (2, "weapon", "Sling");
+var lhammer = new Item (3, "weapon", "Light Hammer");
+var handaxe = new Item (2, "weapon", "Hand Axe");
+var battleaxe = new Item (4, "weapon", "Battleaxe");
+var flail = new Item (3, "weapon", "Flail");
+var longsword = new Item (4, "weapon", "Longsword");
+var scimitar = new Item (3, "weapon", "Scimitar");
+var lightShield = new Item (3, "armor", "Light Shield");
+var heavyShield = new Item (5, "armor", "Heavy Shield");
+var trident = new Item (4, "weapon", "Trident");
+var warhammer = new Item (4, "weapon", "Warhammer");
+var greateaxe = new Item (6, "weapon", "Greataxe");
+var falchion = new Item (5, "weapon", "Falchion");
+var greatclub = new Item (6, "weapon", "Greatclub");
+var greatsword = new Item (6, "weapon", "Greatsword");
+var halberd = new Item (6, "weapon", "Halberd");
+var longbow = new Item (5, "weapon", "Longbow");
+var shortbow = new Item (3, "weapon", "Shortbow");
+var arrows = new Item (1, "projectile", "Arrows x20");
+var dagger = new Item (1, "weapon", "Dagger");
+var lance = new Item (5, "weapon", "Lance");
+var paddedArmor = new Item (3, "armor", "Padded Armor");
+var leatherArmor = new Item (3, "armor", "Leather Armor");
+var studdedArmor = new Item (3, "armor", "Studded Armor");
+var chainShirt = new Item (3, "armor", "Chain Shirt");
+var hideArmor = new Item (4, "armor", "Hide Armor");
+var scailMail = new Item (4, "armor", "Scale Mail");
+var chainMail = new Item (4, "armor", "Chain Mail");
+var breastplate = new Item (4, "armor", "Breastplate");
+var splintMail = new Item (5, "armor", "Splint Mail");
+var bandedMail = new Item (5, "armor", "Banded Mail");
+var halfPlate = new Item (5, "armor", "Half-Plate");
+var fullPlate = new Item (6, "armor", "Full-Plate");
+var buckler = new Item (2, "armor", "Buckler");
+var amuletHealth = new Item (1, "magic", "Amulet of Health");
+var amuletPlanes = new Item (1, "magic", "Amulet of Planes");
+var amuletArmor = new Item (1, "magic", "Amulet of Natural Armor");
+var amuletFists = new Item (1, "magic", "Amulet of Mighty Fists");
+var bagHolding = new Item (2, "magic", "Bag of Holding");
+var bagTricks = new Item (2, "magic", "Bag of Tricks");
+var beltStrength = new Item (2, "magic", "Belt of Giant Strength");
+var bootElf = new Item (2, "magic", "Boots of Elvenkind");
+var bootLevitation = new Item (2, "magic", "Boots of Levitation");
+var bootWing = new Item (2, "magic", "Winged Boots");
+var candleTruth = new Item (1, "magic", "Candle of Truth");
+var capeMountebank = new Item (2, "magic", "Cape of the Mountebank");
+var carpetFlying = new Item (3, "magic", "Carpet of Flying");
+var crystalBall = new Item (2, "magic", "Crystal Ball");
+var cubeForce = new Item (1, "magic", "Cube of Force");
+var cubeGate = new Item (1, "magic", "Cubic Gate");
+var darkskull = new Item (1, "magic", "Darkskull");
+var deckIllusions = new Item (1, "magic", "Deck of Illusions");
+var elixerFire = new Item (1, "magic", "Elixer of Fire");
+var elixerHiding = new Item (1, "magic", "Elixer of Hiding");
+var elixerLove = new Item (1, "magic", "Elixer of Love");
+var elixerTruth = new Item (1, "magic", "Elixer of Truth");
+var gemSeeing = new Item (1, "magic", "Gem of Seeing");
+var gloveStoring = new Item (2, "magic", "Glove of Storing");
+var handGlory = new Item (1, "magic", "Hand of Glory");
+var handyHaversack = new Item (3, "magic", "Handy Haversack");
+var harpCharming = new Item (3, "magic", "Harp of Charming");
+var hatDisguise = new Item (2, "magic", "Hat of Disguise");
+var instantFortress = new Item (1, "magic", "Instant Fortress");
+var maulTitans = new Item (8, "magic", "Maul of the Titans");
 
 
 
@@ -278,6 +263,6 @@ var maulTitans = new Item ("8", "magic", "Maul of the Titans");
 $(document).ready(function(){
   $("form#room").submit(function(event){
     event.preventDefault();
-    
+
   })
 });
