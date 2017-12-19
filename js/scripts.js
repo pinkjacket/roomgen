@@ -75,9 +75,11 @@ function bench (onTop) {
   this.size: 4;
   this.onTop: onTop;
 }
-
-// function furntiure (name, size, onTop) {
-//   this.name: name;
-//   this.size: size;
-//   this.onTop: onTop
-// }
+/*
+function furntiure (name, type, size, onTop, inside) {
+  this.name: name;
+  this.type: type;
+  this.size: size;
+  this.onTop: onTop
+  this.inside: inside;
+}*/
