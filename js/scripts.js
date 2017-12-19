@@ -36,7 +36,7 @@ function makeRoom(){
 //Object Definitions-------------------------------------
 
 // Furniture contsructor.
-function Furntiure (name, size, onTop, inside) {
+function Furniture (name, size, onTop, inside) {
   this.name = name;
   this.size = size;
   this.onTop = onTop;
@@ -46,6 +46,21 @@ function Furntiure (name, size, onTop, inside) {
   this.insideArray = [];
   furnitureArray.push(this);
 };
+
+//Item constructor.
+function Item(space, type, name) {
+  this.space = 0;
+  this.type = type;
+  this.name = name;
+  itemArray.push(this);
+}
+
+function Room(size, type){
+  this.space = size()
+  this.type = "generic"
+  this.contents = [];
+}
+
 //Furniture objects array.
 var furnitureArray = [];
 //Furniture objects.
@@ -62,14 +77,8 @@ var nightStand = new Furniture("Night Stand", 1, 5, 5);
 var ottoman = new Furniture("Ottoman", 1, 2, 10);
 var table = new Furniture("Table", 4, 10, 0);
 var throne = new Furniture("Throne", 2, 1, 0);
-//Item constructor.
 
-function Item(space, type, name) {
-  this.space = 0;
-  this.type = type;
-  this.name = name;
-  itemArray.push(this);
-}
+
 
 var cheese = new Item(1, "food", "Cheese");
 var wine = new Item (1, "drink", "Wine");
@@ -214,22 +223,6 @@ Room.prototype.populate = function(){
   }
 
 }
-function spaceFill(space, stuff){
-  var area = space;
-  var contain = [];
-  for(var i=0; i < (stuff.length); i++){
-    var thing = stuff[i];
-    //each thing in furniture will be an object with a size property
-    if (thing.size > area){
-      return contain;
-    } else {
-      contain.push(thing)
-      area -= thing.size;
-    }
-  }
-  console.log(contain);
-}
-
 
 Furniture.prototype.populate =function(){
 
