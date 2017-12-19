@@ -218,15 +218,14 @@ var potionBarkskin = new Item (1, "potion", "Barkskin (Potion)");
 var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
 var clericsVestment = new Item (2, "clothing", "Cleric's Vestments");
 var coldOutfit = new Item (2, "clothing", "Cold Weather Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
-var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var entertainerOutfit = new Item (2, "clothing", "Entertainer's Outfit");
+var explorerOutfit = new Item (2, "clothing", "Explorer's Outfit");
+var monkOutfit = new Item (2, "clothing", "Monk's Outfit");
+var nobleOutfit = new Item (2, "clothing", "Noble's Outfit");
+var peasantOutfit = new Item (2, "clothing", "Peasant's Outfit");
+var royalOutfit = new Item (2, "clothing", "Royal's Outfit");
+var scholarOutfit = new Item (2, "clothing", "Scholar's Outfit");
+var travelerOutfit = new Item (2, "clothing", "Traveler's Outfit");
 
 //Prototypes-------------------------------------------------------------------------------
 
