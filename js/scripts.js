@@ -87,6 +87,7 @@ var throne = new Furniture("Throne", 2, 1, 0);
 var itemArray = [];
 
 var cheese = new Item(1, "food", "Cheese");
+var bread = new Item(1, "food", "Bread");
 var wine = new Item (1, "drink", "Wine");
 var gold = new Item (1, "currency", "Gold x10");
 var silver = new Item (1, "currency", "Silver x10");
