@@ -25,19 +25,15 @@ function size(){
 var space = size();
 //var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 
-var newChair = new Chair;
-var newTable = new Table;
-var newBed = new Bed;
-var newChest = new Chest;
 
-var stuff = [newChair, newTable, newBed, newChest]
+var stuff = [new Chair, new Table, new Bed, new Chest]
 
 
 
 function spaceFill(space, stuff){
   var area = space;
   var contain = [];
-  for(var i=0; i<stuff.length; i++){
+  for(var i=0; i < (stuff.length); i++){
     var thing = stuff[i];
     //each thing in furniture will be an object with a size property
     if (thing.size > area){
@@ -47,76 +43,77 @@ function spaceFill(space, stuff){
       area -= thing.size;
     }
   }
+  console.log(contain);
 }
 
 console.log(spaceFill(space, stuff));
 
 //Object Definitions-------------------------------------
-function chair (onTop) {
+function Chair (onTop) {
   this.size = 1;
   this.onTop = onTop;
 }
 
-function throne (onTop) {
+function Throne (onTop) {
   this.size = 2;
   this.onTop = onTop;
 }
 
-function table (onTop) {
+function Table (onTop) {
   this.size = 4;
   this.onTop = onTop;
 }
 
-function bed (onTop) {
+function Bed (onTop) {
   this.size = 6;
   this.onTop = onTop;
 }
 
-function chest (inside) {
+function Chest (inside) {
   this.size = 2;
   this.inside = inside;
 }
 
-function armoire (inside) {
+function Armoire (inside) {
   this.size = 3;
   this.inside = inside;
 }
 
 
-function couch (onTop) {
+function Couch (onTop) {
   this.size = 4;
   this.onTop = onTop;
 }
 
-function nightStand (onTop, inside) {
+function NightStand (onTop, inside) {
   this.size = 1;
   this.onTop = onTop;
   this.inside = inside;
 }
 
-function chestOfDrawers (onTop, inside) {
+function ChestOfDrawers (onTop, inside) {
   this.size = 4;
   this.onTop = onTop;
   this.inside = inside;
 }
 
-function counter (onTop, inside) {
+function Counter (onTop, inside) {
   this.size = 1;
   this.onTop = onTop;
   this.inside = inside;
 }
 
-function desk (onTop, inside) {
+function Desk (onTop, inside) {
   this.size = 3;
   this.onTop = onTop;
   this.inside = inside;
 }
 
-function ottoman () {
+function Ottoman () {
   this.size = 1;
 }
 
-function bench (onTop) {
+function Bench (onTop) {
   this.size = 4;
   this.onTop = onTop;
 }
@@ -133,6 +130,7 @@ function bench (onTop) {
 
 //items
 var itemArray = [];
+console.log(itemArray);
 
 function Item(space, type, name) {
   this.space = 0;
