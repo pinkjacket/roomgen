@@ -1,3 +1,5 @@
+//Loose Helper Files
+
 function randPick(arr){
   //take in an array
   return Math.floor((Math.random()*arr.length)+1)
@@ -22,33 +24,29 @@ function size(){
 
 
 //logic for how long
-var space = size();
+
 //var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 
 
 var stuff = [new Chair, new Table, new Bed, new Chest]
 
+function makeRoom(){
+  var newRoom = new Room(size(), "generic");
 
+  // spaceFill(newRoom.size, stuff /*replace with furniture array*/)
 
-function spaceFill(space, stuff){
-  var area = space;
-  var contain = [];
-  for(var i=0; i < (stuff.length); i++){
-    var thing = stuff[i];
-    //each thing in furniture will be an object with a size property
-    if (thing.size > area){
-      return contain;
-    } else {
-      contain.push(thing)
-      area -= thing.size;
-    }
-  }
-  console.log(contain);
+  console.log("foo");
 }
 
-console.log(spaceFill(space, stuff));
+
 
 //Object Definitions-------------------------------------
+function Room(space, type) {
+  this.space = size();
+  this.type = type;
+  this.contents = [];
+}
+
 function Chair (onTop) {
   this.size = 1;
   this.onTop = onTop;
@@ -117,14 +115,6 @@ function Bench (onTop) {
   this.size = 4;
   this.onTop = onTop;
 }
-/*
-function furntiure (name, type, size, onTop, inside) {
-  this.name: name;
-  this.type: type;
-  this.size: size;
-  this.onTop: onTop
-  this.inside: inside;
-}*/
 
 // var furniture = function(name, size, onTop) {
 //   this.name = name;
@@ -138,7 +128,7 @@ function furntiure (name, type, size, onTop, inside) {
 
 //items
 var itemArray = [];
-console.log(itemArray);
+//console.log(itemArray);
 
 function Item(space, type, name) {
   this.space = 0;
@@ -179,10 +169,43 @@ var spyGlass = new Item ("1", "tool", "Spy Glass");
 var rope = new Item ("1", "tool", "Rope");
 var alchemist = new Item ("1", "projectile", "Wine");
 
+Room.prototype.populate = function(){
+  var area = this.size;
+  //push results to this.contents
+
+  while (area > 0){
+    var thing = furnitureArray[randPick(furnitureArray)];
+    if (thing.size > area){
+      return
+    } else {
+      this.contents.push(thing)
+      area -= thing.size
+    }
+
+  }
+
+}
+function spaceFill(space, stuff){
+  var area = space;
+  var contain = [];
+  for(var i=0; i < (stuff.length); i++){
+    var thing = stuff[i];
+    //each thing in furniture will be an object with a size property
+    if (thing.size > area){
+      return contain;
+    } else {
+      contain.push(thing)
+      area -= thing.size;
+    }
+  }
+  console.log(contain);
+}
+
+
+Furniture.prototype.populate =function(){
+
+}
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
-  $("form#room").submit(function(event){
-    event.preventDefault();
-    
-  })
+
 });
