@@ -87,7 +87,11 @@ var throne = new Furniture("Throne", 2, 1, 0);
 var itemArray = [];
 
 var cheese = new Item(1, "food", "Cheese");
-var bread = new Item(1, "food", "Bread");
+var bread = new Item(1, "food", "Bread Loaf");
+var driedFruit = new Item(1, "food", "Dried Fruit");
+var potato = new Item(1, "food", "Potato");
+var meat = new Item(2, "food", "Hunk of Meat");
+var rum = new Item(1, "drink", "Bottle of Rum");
 var wine = new Item (1, "drink", "Wine");
 var gold = new Item (1, "currency", "Gold x10");
 var silver = new Item (1, "currency", "Silver x10");
@@ -211,6 +215,18 @@ var potionEnlarge = new Item (1, "potion", "Enlarge Person (Potion)");
 var potionReduce = new Item (1, "potion", "Reduce Person (Potion)");
 var potionAid = new Item (1, "potion", "Aid (Potion)");
 var potionBarkskin = new Item (1, "potion", "Barkskin (Potion)");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var clericsVestment = new Item (2, "clothing", "Cleric's Vestments");
+var coldOutfit = new Item (2, "clothing", "Cold Weather Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
+var artisanOutfit = new Item (2, "clothing", "Artisan's Outfit");
 
 //Prototypes-------------------------------------------------------------------------------
 
