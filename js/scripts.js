@@ -23,7 +23,7 @@ function size(){
 
 //var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 
-var stuff = [new Chair, new Table, new Bed, new Chest]
+//var stuff = [new Chair, new Table, new Bed, new Chest]
 
 function makeRoom(){
   var newRoom = new Room(size(), "generic");
@@ -79,6 +79,8 @@ var table = new Furniture("Table", 4, 10, 0);
 var throne = new Furniture("Throne", 2, 1, 0);
 
 
+
+var itemArray = [];
 
 var cheese = new Item(1, "food", "Cheese");
 var wine = new Item (1, "drink", "Wine");
