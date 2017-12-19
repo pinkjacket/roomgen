@@ -56,8 +56,8 @@ function Item(space, type, name) {
 }
 
 function Room(size, type){
-  this.space = size()
-  this.type = "generic"
+  this.space = size();
+  this.type = "generic";
   this.contents = [];
 }
 
