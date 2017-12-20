@@ -2,7 +2,7 @@
 
 function randPick(arr){
   //take in an array
-  var pick = arr[Math.floor((Math.random()*arr.length)+1)]
+  var pick = arr[Math.floor((Math.random()*arr.length))]
   console.log("Pick: " + pick.name + " Size: " + pick.space);
   return pick
 }
@@ -57,7 +57,7 @@ Room.prototype.populate = function(){
 }
 
 Furniture.prototype.populate =function(){
-  debugger;
+  // debugger;
   var size = this.space;
   //console.log("Furniture Size: " + size);
   //push results to this.contents
@@ -66,6 +66,7 @@ Furniture.prototype.populate =function(){
       //console.log("key: " + key);
       while (size > 0){
         var thing = randPick(itemArray);
+        // console.log();
         if (thing.space < size){
           console.log("array: "+ this[key+"Array"]);
           this[key+"Array"].push(thing);
@@ -157,7 +158,7 @@ var book = new Item (1, "tool", "Book of Tales");
 var candle = new Item (1, "tool", "Candle");
 var spyGlass = new Item (1, "tool", "Spy Glass");
 var rope = new Item (1, "tool", "Rope");
-var silkRope = new Item (1, "tool", "Silk Rope")
+var silkRope = new Item (1, "tool", "Silk Rope");
 var alchemist = new Item (1, "projectile", "Alchemist's Fire");
 var holyWater = new Item (1, "projectile", "Holy Water");
 var thunderStone = new Item (1, "projectile", "Thunderstone");
