@@ -1,3 +1,16 @@
+# _Fantasy Room Generator_
+
+#### _This program will generate a random room and fill it with furniture, that is filled with other objects, 12-20-2017_
+
+#### By _**{List of contributors}**_
+
+## Description
+
+_This program will randomly generate a room based in a fantasy setting, used for tabletop games such as D&D, pathfinder, and more. The generator will generate a room with a random size, and fills the room with as much furniture it can reasonably hold. After the furniture is generated, the furniture is populated with smaller items, which are also generated._
+
+
+## Specifications
+
 | Behavior | Input | Output |
 | :------------- | :------------- | :------------- |
 | generate random number | roll | 4 |
@@ -8,3 +21,30 @@
 | fill up space within furniture with random junk | table.top space: 15, cheese:2 | table.top: 13 |
 | repeat the above until room something is rolled that wont fit | room:30, table: 12, fireplace: 5, lamp:2, bed:10, desk:5 | 1 space remaining, desk excluded |
 | fill each piece of furniture with available space | table:10, cheese:2, tome:5, tome2:5 | table has a piece of cheese and a tome on top, second tome excluded. |
+
+## Setup/Installation Requirements
+
+* _Clone or download repository from github.com_
+* _open index.html_
+* _click generate_
+
+_Don't move any files around or the program may not work!_
+
+## Known Bugs
+
+_There are no known bugs at this time_
+
+
+## Technologies Used
+
+* _HTML_
+* _JavaScript_
+* _CSS_
+* _Bootstrap_
+* _JQuery_
+* _Atom_
+
+### License
+
+
+Copyright (c) 2017 **_This software is licensed under the MIT license_**
