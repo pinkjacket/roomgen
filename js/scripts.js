@@ -1,3 +1,6 @@
+var dice1;
+var dice2;
+
 //Loose Helper Files
 function randPick(arr){
   //take in an array
@@ -11,7 +14,11 @@ function dice(){
 }
 
 function size(){
-  var roomSize = (dice() * dice());
+  dice1 = dice();
+  dice2 = dice();
+  console.log(dice1);
+  console.log(dice2);
+  var roomSize = (dice1 * dice2);
   return roomSize;
 
 }
@@ -79,6 +86,18 @@ function Item(space, type, name) {
   this.name = name;
   itemArray.push(this);
 }
+
+function Board(x, y) {
+  this.rowArr = [];
+  for (var j=1; j<=y; j++){
+    var innerArray = [];
+    for (var i=1; i<=x; i++) {
+      innerArray.push("O");
+    }
+    this.rowArr.push(innerArray + '<br>');
+  }
+}
+
 //Furniture objects array.
 var furnitureArray = [];
 //item objects array.
@@ -133,6 +152,7 @@ $(document).ready(function(){
       idNum = idNum + 1;
       idInside = "idInside" + idNum;
       idOnTop = "idOnTop" + idNum;
+
       $("ul.furniture").append("<li><h2>" + furnishedItem.name  + "</h2></li>" +
 
       insideHeader(furnishedItem.insideArray, furnishedItem.name, idInside) +
@@ -146,6 +166,7 @@ $(document).ready(function(){
 
   $("form#room").submit(function() {
     event.preventDefault();
+
     $("#result").fadeOut();
     $("#result").empty();
     var generatedRoom = makeRoom();
@@ -154,6 +175,10 @@ $(document).ready(function(){
 
     $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
     roomFurniture(generatedRoom.contents);
+
     $("#result").fadeIn();
+    console.log(dice1);
+    console.log(dice2);
+
   });
 });
