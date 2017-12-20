@@ -117,7 +117,7 @@ $(document).ready(function(){
       idNum = idNum + 1;
       idInside = "idInside" + idNum;
       idOnTop = "idOnTop" + idNum;
-      $("ul.furniture").append("<li>" + furnishedItem.name  + "</li>" + "<h3>inside the the " + furnishedItem.name + " is: </h3><ul class='item-inside' id='" + idInside + "'></ul>" + "<h3>and on top of the " + furnishedItem.name + " is:</h3><ul class='item-on-top' id='" + idOnTop + "'></ul>")
+      $("ul.furniture").append("<li>" + furnishedItem.name  + "</li>" + "<h4>inside the the " + furnishedItem.name + " is: </h4><div class='small'><ul class='item-inside' id='" + idInside + "'></ul></div>" + "<h4>and on top of the " + furnishedItem.name + " is:</h4><div class='small'><ul class='item-on-top' id='" + idOnTop + "'></ul></div><br>")
       furnitureInside(furnishedItem.insideArray, idInside);
       furnitureOnTop(furnishedItem.onTopArray, idOnTop);
     })
@@ -128,14 +128,17 @@ $(document).ready(function(){
 
   $("form#room").submit(function() {
     event.preventDefault();
-    $("#result").fadeOut();
-    $("#result").empty();
-    var generatedRoom = makeRoom();
-    var generatedFurniture = generatedRoom.contents;
-    console.log(generatedRoom);
+    $("#result").fadeOut(function(){
+      $("#result").empty();
+      var generatedRoom = makeRoom();
+      var generatedFurniture = generatedRoom.contents;
+      console.log(generatedRoom);
 
-    $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
-    roomFurniture(generatedRoom.contents);
+      $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
+      roomFurniture(generatedRoom.contents);
+      console.log(generatedRoom.space);
+  });
+
     // generatedFurniture.forEach(function(furnishing) {
     //   $("#stuff-list").append('<li class=""')
     // })

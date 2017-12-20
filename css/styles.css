@@ -27,3 +27,7 @@ button:hover {
  font-family: fantasy;
  text-align: center;
 }
+
+.small {
+  font-size: 12pt;
+}
