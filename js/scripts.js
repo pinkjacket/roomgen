@@ -56,13 +56,11 @@ Furniture.prototype.populate =function(){
   //push results to this.contents
   for (var key in this){
     if (key === "onTop" || key === "inside"){
-      var size = this[key];
-      while (size > 0){
-        debugger;
+      while (this[key] > 0){
         var thing = randPick(itemArray);
-        if (thing.space <= size){
+        if (thing.space <= this[key]){
           this[key+"Array"].push(thing);
-          size -= thing.space;
+          this[key] -= thing.space;
         } else {
           break;
         }
