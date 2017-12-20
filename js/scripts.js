@@ -108,6 +108,8 @@ $(document).ready(function(){
     event.preventDefault();
     $("#result").fadeOut();
     $("#result").empty();
+    $("#board").empty();
+    $("#board").show();
     var room = makeRoom();
     console.log(room);
 
@@ -119,7 +121,14 @@ $(document).ready(function(){
       $("#stuff-list").append('<li class="furnitureItem"> A ' + thingy.name + ' with </li><ul class="items">' + "</ul>" )
    });
     itemArrayForEach(itemArray);
-
+    for (var i=1; i <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; i++) {
+      console.log(room.space);
+      $("#board").append('<div class="row" id="row' + i + '">' + '</div>');
+      for (var j=1; j <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; j++) {
+        console.log(room.space);
+        $("#row" + i).append('<div class="col-md-1 col' + j + '">');
+      }
+    }
     $("#result").fadeIn();
   }
 )});
