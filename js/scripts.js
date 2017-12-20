@@ -1,5 +1,4 @@
 //Loose Helper Files
-
 function randPick(arr){
   //take in an array
   var pick = arr[Math.floor((Math.random()*arr.length))]
@@ -17,15 +16,6 @@ function size(){
 
 }
 
-function itemArrayForEach(itemArray) {
-  itemArray.forEach(function(item) {
-    if (!item) {
-    } else {
-      $("ul.items").append("<li>" + item.name  + "</li>")
-    }
-  }
-)}
-
 function makeRoom(){
   var newRoom = new Room(size());
   newRoom.populate();
@@ -33,11 +23,10 @@ function makeRoom(){
     var furn = newRoom.contents[j];
     furn.populate();
   }
+  return newRoom;
   console.log(newRoom);
 }
-
 //Prototypes-------------------------------------------------------------------------------
-
 Room.prototype.populate = function(){
   var area = this.space;
   //push results to this.contents
@@ -51,7 +40,6 @@ Room.prototype.populate = function(){
     }
   }
 }
-
 Furniture.prototype.populate =function(){
   //push results to this.contents
   for (var key in this){
@@ -68,14 +56,12 @@ Furniture.prototype.populate =function(){
     }
   }
 }
-
 //Object Definitions-------------------------------------
 function Room(size) {
   this.space = size;
   this.type = "generic";
   this.contents = [];
 }
-
 // Furniture contsructor.
 function Furniture (name, size, onTop, inside) {
   this.name = name;
@@ -86,7 +72,6 @@ function Furniture (name, size, onTop, inside) {
   this.insideArray = [];
   furnitureArray.push(this);
 };
-
 //Item constructor.
 function Item(space, type, name) {
   this.space = space;
@@ -94,32 +79,56 @@ function Item(space, type, name) {
   this.name = name;
   itemArray.push(this);
 }
-
 //Furniture objects array.
 var furnitureArray = [];
-
 //item objects array.
 var itemArray = [];
-
-
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
-  $("form#room").submit(function(event){
+
+  function furnitureInside(furnitureItemsInside) {
+    furnitureItemsInside.forEach(function(itemInside) {
+      $("ul.item-inside").append("<li>" + itemInside.name  + "</li></ul>")
+    });
+  };
+
+  function furnitureOnTop(furnitureItemsOnTop) {
+    furnitureItemsOnTop.forEach(function(itemOnTop) {
+      $("ul.item-on-top").append("<li>" + itemOnTop.name  + "</li></ul>")
+    });
+  };
+
+  function roomFurniture(roomFurnitureArray) {
+    roomFurnitureArray.forEach(function(furnishedItem) {
+      $("ul.furniture").append("<li>" + furnishedItem.name  + "</li>")
+    })
+  };
+
+  $("form#room").submit(function() {
     event.preventDefault();
     $("#result").fadeOut();
     $("#result").empty();
-    var room = makeRoom();
-    console.log(room);
+    var generatedRoom = makeRoom();
+    var generatedFurniture = generatedRoom.contents;
+    // var generatedItems =
+    // console.log(generatedRoom);
 
-    $("#result").append("You have entered a room that is " + room.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
-    console.log(furnitureArray);
-    furnitureArray.forEach(function(thingy) {
-      debugger;
-      console.log(thingy);
-      $("#stuff-list").append('<li class="furnitureItem"> A ' + thingy.name + ' with </li><ul class="items">' + "</ul>" )
+    $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
+    generatedFurniture.forEach(function(furnishing) {
+      $("#stuff-list").append('<li class=""')
+    })
+
+
+//////////////////////////////////////////////////////////////////////////
+
+    $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
+    // console.log(furnitureArray);
+    generatedRoom.contents.forEach(function(furnishedItem) {
+      // console.log(furnishedItem);
+      // console.log(generatedRoom);
+      $("#stuff-list").append('<li class="furniture"> A ' + generatedRoom.contents.name + ' with </li>' + '<ul class="furniture"></ul>' + '<ul class="item-on-top"></ul>' + '<ul class="item-inside"></ul>' )
    });
-    itemArrayForEach(itemArray);
 
     $("#result").fadeIn();
-  }
-)});
+  });
+});

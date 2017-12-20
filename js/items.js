@@ -1,4 +1,5 @@
 //item list
+// function Item(space, type, name)
 var cheese = new Item(1, "food", "Cheese");
 var bread = new Item(1, "food", "Bread Loaf");
 var driedFruit = new Item(1, "food", "Dried Fruit");
