@@ -130,21 +130,6 @@ $(document).ready(function(){
 
     $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
     roomFurniture(generatedRoom.contents);
-    // generatedFurniture.forEach(function(furnishing) {
-    //   $("#stuff-list").append('<li class=""')
-    // })
-
-
-//////////////////////////////////////////////////////////////////////////
-
-  //   $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
-  //   // console.log(furnitureArray);
-  //   generatedRoom.contents.forEach(function(furnishedItem) {
-  //     // console.log(furnishedItem);
-  //     // console.log(generatedRoom);
-  //     $("#stuff-list").append('<li class="furniture"> A ' + generatedRoom.contents.name + ' with </li>' + '<ul class="furniture"></ul>' + '<ul class="item-on-top"></ul>' + '<ul class="item-inside"></ul>' )
-  //  });
-
     $("#result").fadeIn();
   });
 });
