@@ -106,64 +106,75 @@ var itemArray = [];
 $(document).ready(function(){
 
   function furnitureInside(furnitureItemsInside, idInside) {
-    // var idInside = 0
     furnitureItemsInside.forEach(function(itemInside) {
-      // idInside = idInside + 1;
       $("ul#" + idInside).append("<li>" + itemInside.name  + "</li></ul>")
     });
   };
 
   function furnitureOnTop(furnitureItemsOnTop, idOnTop) {
-    // var idOnTop = 0
     furnitureItemsOnTop.forEach(function(itemOnTop) {
-      // idOnTop = idOnTop + 1;
       $("ul.item-on-top#"+ idOnTop).append("<li>" + itemOnTop.name  + "</li></ul>")
     });
   };
 
+  function insideHeader(furnitureItemsInside, itemName, idInside) {
+    console.log(furnitureItemsInside);
+
+    //console.log("items inside: " + furnitureItemsInside.length);
+    if (furnitureItemsInside.length === 0) {
+      // $("ul.furniture").append("<h3>inside the the " + furnitureItemsInside.name + " is: </h3><ul class='item-inside' id='" + idInside + "'></ul>");
+      console.log("Inside items array is empty.");
+      return ''
+    } else {
+      return ("<h3>inside the " + itemName + " is: </h3><ul class='item-inside' id='" + idInside + "'></ul>");
+    }
+  }
+
+  function onTopHeader(furnitureOnTop, itemName, idOnTop) {
+    console.log("idInside header: "+ idOnTop);
+    //console.log("items on top: " + furnitureOnTop.length);
+    if (furnitureOnTop.length === 0) {
+      // $("ul.furniture").append("<h3>and on top of the " + furnitureOnTop.name + " is: </h3><ul class='item-on-top' id='" + idOnTop + "'></ul>");
+      console.log("On-top items array is empty.");
+      return ''
+    } else {
+      return ("<h3>and on top of the " + itemName + " is: </h3><ul class='item-on-top' id='" + idOnTop + "'></ul>")
+    }
+  }
+
   function roomFurniture(roomFurnitureArray) {
+    // debugger;
     var idNum = 0;
     var idInside = "idInside" + idNum;
     var idOnTop = "idOnTop"+idNum
-    console.log("idFurniture: " + idInside);
+    //console.log("inside ID: " + idInside);
     roomFurnitureArray.forEach(function(furnishedItem) {
       idNum = idNum + 1;
       idInside = "idInside" + idNum;
       idOnTop = "idOnTop" + idNum;
-      $("ul.furniture").append("<li>" + furnishedItem.name  + "</li>" + "<h4>inside the the " + furnishedItem.name + " is: </h4><div class='small'><ul class='item-inside' id='" + idInside + "'></ul></div>" + "<h4>and on top of the " + furnishedItem.name + " is:</h4><div class='small'><ul class='item-on-top' id='" + idOnTop + "'></ul></div><br>")
+
+      $("ul.furniture").append("<li><h2>" + furnishedItem.name  + "</h2></li>" +
+
+      insideHeader(furnishedItem.insideArray, furnishedItem.name, idInside) +
+      onTopHeader(furnishedItem.onTopArray, furnishedItem.name, idOnTop));
+
       furnitureInside(furnishedItem.insideArray, idInside);
+      console.log("idInside: "+ idInside);
       furnitureOnTop(furnishedItem.onTopArray, idOnTop);
     })
   };
 
-
-
-
   $("form#room").submit(function() {
     event.preventDefault();
-    $("#board").empty();
-    $("#result").fadeOut(function(){
-      $("#result").empty();
-      var generatedRoom = makeRoom();
-      var generatedFurniture = generatedRoom.contents;
-      console.log(generatedRoom);
 
-      $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
-      roomFurniture(generatedRoom.contents);
-      console.log(generatedRoom.space);
-      var newBoard = new Board(dice1, dice2);
-      $("#board").show();
-      $("#board").append(newBoard.rowArr);
-  });
+    $("#result").fadeOut();
+    $("#result").empty();
+    var generatedRoom = makeRoom();
+    var generatedFurniture = generatedRoom.contents;
+    console.log(generatedRoom);
 
-  // for (var i=1; i <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; i++) {
-  //   console.log(room.space);
-  //   $("#board").append('<div class="row" id="row' + i + '">' + '</div>');
-  //   for (var j=1; j <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; j++) {
-  //     console.log(room.space);
-  //     $("#row" + i).append('<div class="col-md-1 col' + j + '">');
-  //   }
-  // }
+    $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
+    roomFurniture(generatedRoom.contents);
 
     $("#result").fadeIn();
     console.log(dice1);
