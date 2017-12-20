@@ -2,9 +2,11 @@
 
 function randPick(arr){
   //take in an array
+
   var pick = arr[Math.floor((Math.random()*arr.length))]
   console.log("Pick: " + pick.name + " Size: " + pick.space);
   return pick
+
 }
 
 function dice(){
@@ -20,6 +22,16 @@ function size(){
   return roomSize;
 
 }
+
+function itemArrayForEach(itemArray) {
+  itemArray.forEach(function(item) {
+    if (!item) {
+      console.log("addfjkl");
+    } else {
+      $("ul.items").append("<li>" + item.name  + "</li>")
+    }
+  }
+)}
 
 //var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 
@@ -113,7 +125,26 @@ var furnitureArray = [];
 //item objects array.
 var itemArray = [];
 
+
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
+  $("form#room").submit(function(event){
+    event.preventDefault();
+    $("#result").fadeOut();
+    $("#result").empty();
+    var room = makeRoom();
+    console.log(room);
 
-});
+    $("#result").append("You have entered a room that is " + room.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
+    console.log(furnitureArray);
+    //var items = itemArrayForEach(itemArray)
+    furnitureArray.forEach(function(thingy) {
+      debugger;
+      console.log(thingy);
+      $("#stuff-list").append('<li class="furnitureItem"> A ' + thingy.name + ' with </li><ul class="items">' + "</ul>" )
+   });
+    itemArrayForEach(itemArray);
+
+    $("#result").fadeIn();
+  }
+)});
