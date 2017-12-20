@@ -1,10 +1,8 @@
-
-/*BACK END LOGIC*/
 //Loose Helper Files
 
 function randPick(arr){
   //take in an array
-  return Math.floor((Math.random()*arr.length)+1)
+  return Math.floor((Math.random()*arr.length))
 }
 
 function dice(){
@@ -21,26 +19,38 @@ function size(){
 
 }
 
+//1 space represents a 5ft * 5ft square
+
+
+
+//logic for how long
+
 //var stuff = [{name:"desk", size:4}, {name:"table", size:12}, {name:"statue", size:40}, {name:"bed", size:13}]
 
 //var stuff = [new Chair, new Table, new Bed, new Chest]
 
 function makeRoom(){
   var newRoom = new Room(size(), "generic");
-
+  return newRoom;
   // spaceFill(newRoom.size, stuff /*replace with furniture array*/)
 
   console.log("foo");
 }
 
+
+
 //Object Definitions-------------------------------------
+function Room(space, type) {
+  this.space = size();
+  this.type = type;
+  this.contents = [];
+}
 
 // Furniture contsructor.
 function Furniture (name, size, onTop, inside) {
   this.name = name;
   this.size = size;
   this.onTop = onTop;
-  this.inside = inside;
 
   this.onTopArray = [];
   this.insideArray = [];
@@ -53,12 +63,6 @@ function Item(space, type, name) {
   this.type = type;
   this.name = name;
   itemArray.push(this);
-}
-
-function Room(size, type){
-  this.space = size();
-  this.type = "generic";
-  this.contents = [];
 }
 
 //Furniture objects array.
@@ -112,7 +116,7 @@ var book = new Item (1, "tool", "Book of Tales");
 var candle = new Item (1, "tool", "Candle");
 var spyGlass = new Item (1, "tool", "Spy Glass");
 var rope = new Item (1, "tool", "Rope");
-var silkRope = new Item (1, "tool", "Silk Rope")
+var silkRope = new Item (1, "tool", "Silk Rope");
 var alchemist = new Item (1, "projectile", "Alchemist's Fire");
 var holyWater = new Item (1, "projectile", "Holy Water");
 var thunderStone = new Item (1, "projectile", "Thunderstone");
@@ -227,19 +231,57 @@ Room.prototype.populate = function(){
 }
 
 Furniture.prototype.populate =function(){
-
+  var area = this.size;
+  //push results to this.contents
+  for (var key in this)
+    if (key === "onTop" || key === "inside" || key === "under"){
+      while (area > 0){
+        var thing = furnitureArray[randPick(furnitureArray)];
+        if (thing.size > area){
+          return
+        } else {
+          this.contents.push(thing)
+          area -= thing.size
+        }
+      }
+    }
 }
 
+// function itemArrayForEach(itemArray) {
+//   itemArray.forEach(function(item) {
+//     console.log(item.name);
+//     return "<p>" + item.name + "</p>";
+//   })
+// }
+
+function itemArrayForEach(itemArray) {
+  itemArray.forEach(function(item) {
+    if (!item) {
+      console.log("addfjkl");
+    } else {
+      $("ul.items").append("<li>" + item.name  + "</li>")
+    }
+  }
+)}
 //FRONT END BELOW THIS LINE------------------------------
 $(document).ready(function(){
   $("form#room").submit(function(event){
     event.preventDefault();
-
+    $("#result").fadeOut();
     $("#result").empty();
     var room = makeRoom();
-    $("#result").append(room);
+    console.log(room);
+
+    $("#result").append("You have entered a room that is " + room.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
+    console.log(furnitureArray);
+    //var items = itemArrayForEach(itemArray)
+    furnitureArray.forEach(function(thingy) {
+      debugger;
+      console.log(thingy);
+      $("#stuff-list").append('<li class="furnitureItem"> A ' + thingy.name + ' with </li><ul class="items">' + "</ul>" )
+   });
+    itemArrayForEach(itemArray);
+
     $("#result").fadeIn();
-
-  })
-
-});
+  }
+)});
