@@ -1,5 +1,4 @@
 //item list
-// function Item(space, type, name)
 var cheese = new Item(1, "food", "Cheese");
 var bread = new Item(1, "food", "Bread Loaf");
 var driedFruit = new Item(1, "food", "Dried Fruit");
@@ -190,3 +189,4 @@ var bookDungeoning = new Item (1, "book", "Dungeoning Book");
 var bookAle = new Item (1, "book", "Ale-Making Book");
 var bookMagic = new Item (1, "book", "Spell Tome");
 var bookMaps = new Item (1, "book", "Book of Maps");
+var bookBlank = new Item (1, "book", "Blank Book");
