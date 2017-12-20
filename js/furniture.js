@@ -1,5 +1,4 @@
 //Furniture objects.
-// var Furniture (name, size, onTop, inside)
 var armoire = new Furniture("Armoire", 3, 3, 8);
 var bed = new Furniture("Bed", 6, 10, 2);
 var bench = new Furniture("Bench", 4, 5, 0);
