@@ -95,6 +95,11 @@ function Item(space, type, name) {
   itemArray.push(this);
 }
 
+// function Board(x, y) {
+//
+//     this.row = []
+// }
+
 //Furniture objects array.
 var furnitureArray = [];
 
