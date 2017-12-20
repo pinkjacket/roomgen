@@ -1,3 +1,6 @@
+var dice1;
+var dice2;
+
 //Loose Helper Files
 function randPick(arr){
   //take in an array
@@ -11,7 +14,11 @@ function dice(){
 }
 
 function size(){
-  var roomSize = (dice() * dice());
+  dice1 = dice();
+  dice2 = dice();
+  console.log(dice1);
+  console.log(dice2);
+  var roomSize = (dice1 * dice2);
   return roomSize;
 
 }
@@ -80,10 +87,16 @@ function Item(space, type, name) {
   itemArray.push(this);
 }
 
-// function Board(x, y) {
-//
-//     this.row = []
-// }
+function Board(x, y) {
+  this.rowArr = [];
+  for (var j=1; j<=y; j++){
+    var innerArray = [];
+    for (var i=1; i<=x; i++) {
+      innerArray.push("O");
+    }
+    this.rowArr.push(innerArray + '<br>');
+  }
+}
 
 //Furniture objects array.
 var furnitureArray = [];
@@ -128,6 +141,7 @@ $(document).ready(function(){
 
   $("form#room").submit(function() {
     event.preventDefault();
+    $("#board").empty();
     $("#result").fadeOut(function(){
       $("#result").empty();
       var generatedRoom = makeRoom();
@@ -137,23 +151,23 @@ $(document).ready(function(){
       $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
       roomFurniture(generatedRoom.contents);
       console.log(generatedRoom.space);
+      var newBoard = new Board(dice1, dice2);
+      $("#board").show();
+      $("#board").append(newBoard.rowArr);
   });
 
-    // generatedFurniture.forEach(function(furnishing) {
-    //   $("#stuff-list").append('<li class=""')
-    // })
-
-
-//////////////////////////////////////////////////////////////////////////
-
-  //   $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul id='stuff-list'></ul>");
-  //   // console.log(furnitureArray);
-  //   generatedRoom.contents.forEach(function(furnishedItem) {
-  //     // console.log(furnishedItem);
-  //     // console.log(generatedRoom);
-  //     $("#stuff-list").append('<li class="furniture"> A ' + generatedRoom.contents.name + ' with </li>' + '<ul class="furniture"></ul>' + '<ul class="item-on-top"></ul>' + '<ul class="item-inside"></ul>' )
-  //  });
+  // for (var i=1; i <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; i++) {
+  //   console.log(room.space);
+  //   $("#board").append('<div class="row" id="row' + i + '">' + '</div>');
+  //   for (var j=1; j <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; j++) {
+  //     console.log(room.space);
+  //     $("#row" + i).append('<div class="col-md-1 col' + j + '">');
+  //   }
+  // }
 
     $("#result").fadeIn();
+    console.log(dice1);
+    console.log(dice2);
+
   });
 });
