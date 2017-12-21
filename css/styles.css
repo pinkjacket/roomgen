@@ -11,6 +11,7 @@ body {
 
 #board {
   display: none;
+  font-size: 16pt;
 }
 
 button:hover {
@@ -31,7 +32,7 @@ button:hover {
 .small {
   font-size: 12pt;
 }
-  
+
 .jumbotron {
   background-color: rgba(255, 255, 255,0.9);
 }
@@ -39,3 +40,16 @@ button:hover {
    background-color: rgba(255, 255, 255,0.9);
    text-align: justify;
  }
+
+.entered {
+  font-size: 24pt;
+}
+
+.description {
+  margin-top: 10px;
+  font-family: fantasy;
+}
+
+.fantasy-text {
+  font-family: fantasy;
+}
