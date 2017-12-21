@@ -98,6 +98,22 @@ function Board(x, y) {
   }
 }
 
+Board.prototype.populate = function(arr){
+  var newRowArr = this.rowArr;
+  arr.forEach(function(element) {
+    var arrayElementColumn = Math.floor(Math.random() * dice1);
+    var arrayElementRow = Math.floor(Math.random() * dice2);
+    console.log(arrayElementColumn)
+    var randomArrayColumn = newRowArr[arrayElementColumn];
+    console.log(randomArrayColumn);
+    randomArrayColumn[dice2] = "X";
+    console.log(randomArrayColumn[dice2])
+    newRowArr[arrayElementColumn] = randomArrayColumn;
+  })
+  console.log(newRowArr);
+  this.rowArr = newRowArr;
+}
+
 //Furniture objects array.
 var furnitureArray = [];
 //item objects array.
@@ -141,19 +157,23 @@ $(document).ready(function(){
 
   $("form#room").submit(function() {
     event.preventDefault();
+    $("#board").fadeOut();
     $("#board").empty();
     $("#result").fadeOut(function(){
       $("#result").empty();
       var generatedRoom = makeRoom();
       var generatedFurniture = generatedRoom.contents;
+      console.log(generatedFurniture);
       console.log(generatedRoom);
 
       $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
       roomFurniture(generatedRoom.contents);
       console.log(generatedRoom.space);
       var newBoard = new Board(dice1, dice2);
-      $("#board").show();
-      $("#board").append(newBoard.rowArr);
+      console.log(newBoard.rowArr[0])
+      newBoard.populate(generatedFurniture);
+      $("#board").fadeIn();
+      $("#board").append("<h2>Board</h2>" + newBoard.rowArr.join(" "));
   });
 
   // for (var i=1; i <= Math.floor(Math.sqrt(room.space)) /*10 if undefined, +1?*/; i++) {
