@@ -1,4 +1,4 @@
-# [_Fantasy Room Generator_](https://pinkjacket.github.io/roomgen/)
+# [Fantasy Tabletop Game Room Generator](https://pinkjacket.github.io/roomgen/)
 
 
 #### _This program will generate a random room and fill it with furniture, that is filled with other objects, 12-20-2017_
