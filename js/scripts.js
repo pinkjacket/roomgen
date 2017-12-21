@@ -43,12 +43,16 @@ Room.prototype.populate = function(){
     }
   }
 }
+/*CHANGE THIS TO USE VARIABLE*/
+
 //Furniture on-top & inside items prototype.
 Furniture.prototype.populate =function(){
   for (var key in this){
     if (key === "onTop" || key === "inside"){
-      while (this[key] > 0){
+      while (  > 0){
         var thing = randPick(itemArray);
+        console.log("furniture: "+this.name);
+        console.log("pop: "+thing.name);
         if (thing.space <= this[key]){
           this[key+"Array"].push(thing);
           this[key] -= thing.space;
@@ -59,6 +63,8 @@ Furniture.prototype.populate =function(){
     }
   }
 }
+/*CHANGE THIS TO USE VARIABLE*/
+
 /*Object Definitions*/
 //Room constructor.
 function Room(size) {
@@ -151,6 +157,7 @@ $(document).ready(function(){
     $("#result").empty();
     var generatedRoom = makeRoom();
     var generatedFurniture = generatedRoom.contents;
+    console.log(generatedRoom.contents);
     $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
     roomFurniture(generatedRoom.contents);
     $("#result").fadeIn();
