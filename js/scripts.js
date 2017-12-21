@@ -97,8 +97,25 @@ function Board(x, y) {
   }
 }
 
-Board.prototype.populate = function(arr){
-  var newRowArr = this.rowArr;
+Board.prototype.populate = function(){
+  var random = Math.ceil(Math.random() * dice2);
+  var random1 = Math.floor(Math.random() * dice1);
+  // console.log(random);
+  // console.log("poop and pee");
+  for (var prop in this) {
+    // console.log(this["row" + random]);
+    // console.log(prop);
+    if (prop === "row" + random) {
+      for(var i=0; i<=dice1; i++) {
+        if (i === random1) {
+          console.log(this);
+          console.log(this["row" + random1.toString()])
+          this["row" + random1] = "X";
+        }
+      }
+    }
+  }
+/*  var newRowArr = this.rowArr;
   arr.forEach(function(element) {
     var arrayElementColumn = Math.floor(Math.random() * dice1);
     var arrayElementRow = Math.floor(Math.random() * dice2);
@@ -110,7 +127,7 @@ Board.prototype.populate = function(arr){
     newRowArr[arrayElementColumn] = randomArrayColumn;
   })
   console.log(newRowArr);
-  this.rowArr = newRowArr;
+  this.rowArr = newRowArr;*/
 }
 
 //Furniture objects array.
@@ -193,11 +210,13 @@ $(document).ready(function(){
       roomFurniture(generatedRoom.contents);
       //console.log(generatedRoom.space);
       var newBoard = new Board(dice1, dice2);
+      newBoard.populate();
       /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
       $("#board").fadeIn();
       $("#board").append("<h2>Board</h2>" + newBoard.rowArr.join(" "));*/
       $("#board").fadeIn();
+      $("#board").append("<h2>Board:</h2>");
       for (var i=1; i<=dice2; i++){
         $("#board").append(newBoard["row" + i].join(" ") + "<br>")
       }
