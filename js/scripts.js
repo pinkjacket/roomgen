@@ -27,6 +27,7 @@ function makeRoom(){
     var furn = newRoom.contents[j];
     furn.populate();
   };
+  console.log(newRoom);
   return newRoom;
 };
 //Unique Furniture objects array.
