@@ -1,9 +1,9 @@
-# [Fantasy Tabletop Game Room Generator](https://pinkjacket.github.io/roomgen/)
+# [FANTASY TABLETOP GAME ROOM GENERATOR](https://pinkjacket.github.io/roomgen/)
 
+#### This program will generate a random room and fill it with furniture, that is filled with other objects.
 
-#### _This program will generate a random room and fill it with furniture, that is filled with other objects, 12-20-2017_
-
-#### Authors: _**Adam Calhoun, Anduin Mooney, James Donlan, Ryan Ferris, Sam Gespass**_
+#### Authors: _**[Adam Calhoun](https://github.com/TuesdayHat), [Anduin Mooney](https://github.com/anduinmooney), [James Donlan](https://github.com/pinkjacket), [Ryan Ferris](https://github.com/ryanglenferris), [Sam Gespass](https://github.com/darthtoad)**_
+#### Published: December 21st, 2017
 
 ## DESCRIPTION
 
@@ -25,16 +25,13 @@ _This program will randomly generate a room based in a fantasy setting, used for
 
 ## SETUP/INSTALLATION REQUIREMENTS
 
-* _Clone or download repository from github.com_
-* _open index.html_
-* _click generate_
-
-_Don't move any files around or the program may not work!_
+* _Clone or download repository from [github.com/pinkjacket/roomgen](https://github.com/pinkjacket/roomgen)_
+* _Open index.html_
+* _Click the 'Create random room!' button_
 
 ## KNOWN BUGS & ISSUES
 
-_There are no known bugs at this time_
-
+_There are no known bugs at this time. Please let any of the [Authors](mailto:ryanglenferris@gmail.com) know of any if you find them!_
 
 ## TECHNOLOGIES USED
 
@@ -46,6 +43,5 @@ _There are no known bugs at this time_
 * _Atom_
 
 ### LICENSE
-
 
 Copyright (c) 2017 **_This software is licensed under the MIT license_**
