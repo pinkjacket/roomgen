@@ -212,18 +212,21 @@ $(document).ready(function(){
       var newBoard = new Board(dice1, dice2);
       generatedFurniture.forEach(function(piece){
         newBoard.populate();
+
+      for (key in newBoard) {
+        console.log(Array.isArray(newBoard[key]))
+        if (Array.isArray(newBoard[key])) {
+          console.log(newBoard[key]);
+          newBoard[key].forEach(function(value){
+            console.log(value)
+            if (value === "X") {
+              newBoard[key] += "<span title=" + piece.name + ">X</span>";
+              console.log("ofadopj");
+            }
+          })
+        }
+      }
       });
-      // for (key in newBoard) {
-      //   if (key !== 'populate'){
-      //     console.log(newBoard[key]);
-      //     newBoard[key].forEach(function(value){
-      //       if (value === "X") {
-      //         newBoard[key] = "<span title=" + piece + ">X</span>";
-      //         console.log("ofadopj");
-      //       }
-      //     })
-      //   }
-      // }
       /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
       $("#board").fadeIn();
