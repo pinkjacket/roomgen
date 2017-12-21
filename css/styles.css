@@ -55,7 +55,7 @@ button:hover {
   font-size: 24pt;
 }
 
-.description {
+#description {
   margin-top: 10px;
   font-family: fantasy;
   background-image: url("../img/paper.jpg");
