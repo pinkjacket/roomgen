@@ -88,13 +88,12 @@ function Item(space, type, name) {
 }
 
 function Board(x, y) {
-  this.rowArr = [];
-  for (var j=1; j<=y; j++){
-    var innerArray = [];
-    for (var i=1; i<=x; i++) {
-      innerArray.push("O");
+  debugger;
+  for (i=1; i<=y; i++) {
+    this["row" + i] = [];
+    for (j=1; j<=x; j++) {
+      this["row" + i].push("_");
     }
-    this.rowArr.push(innerArray + '<br>');
   }
 }
 
@@ -134,12 +133,11 @@ $(document).ready(function(){
   };
 
   function insideHeader(furnitureItemsInside, itemName, idInside) {
-    console.log(furnitureItemsInside);
+    //console.log(furnitureItemsInside);
 
     //console.log("items inside: " + furnitureItemsInside.length);
     if (furnitureItemsInside.length === 0) {
       // $("ul.furniture").append("<h3>inside the the " + furnitureItemsInside.name + " is: </h3><ul class='item-inside' id='" + idInside + "'></ul>");
-      console.log("Inside items array is empty.");
       return ''
     } else {
       return ("<h3>inside the " + itemName + " is: </h3><ul class='item-inside' id='" + idInside + "'></ul>");
@@ -147,11 +145,11 @@ $(document).ready(function(){
   }
 
   function onTopHeader(furnitureOnTop, itemName, idOnTop) {
-    console.log("idInside header: "+ idOnTop);
+    //console.log("idInside header: "+ idOnTop);
     //console.log("items on top: " + furnitureOnTop.length);
     if (furnitureOnTop.length === 0) {
       // $("ul.furniture").append("<h3>and on top of the " + furnitureOnTop.name + " is: </h3><ul class='item-on-top' id='" + idOnTop + "'></ul>");
-      console.log("On-top items array is empty.");
+      //console.log("On-top items array is empty.");
       return ''
     } else {
       return ("<h3>and on top of the " + itemName + " is: </h3><ul class='item-on-top' id='" + idOnTop + "'></ul>")
@@ -175,47 +173,46 @@ $(document).ready(function(){
       onTopHeader(furnishedItem.onTopArray, furnishedItem.name, idOnTop));
 
       furnitureInside(furnishedItem.insideArray, idInside);
-      console.log("idInside: "+ idInside);
+      //console.log("idInside: "+ idInside);
       furnitureOnTop(furnishedItem.onTopArray, idOnTop);
     })
   };
 
   $("form#room").submit(function() {
     event.preventDefault();
-<<<<<<< HEAD
     $("#board").fadeOut();
     $("#board").empty();
     $("#result").fadeOut(function(){
       $("#result").empty();
       var generatedRoom = makeRoom();
       var generatedFurniture = generatedRoom.contents;
-      console.log(generatedFurniture);
-      console.log(generatedRoom);
+      //console.log(generatedFurniture);
+      //console.log(generatedRoom);
 
       $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
       roomFurniture(generatedRoom.contents);
-      console.log(generatedRoom.space);
+      //console.log(generatedRoom.space);
       var newBoard = new Board(dice1, dice2);
-      console.log(newBoard.rowArr[0])
+      /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
       $("#board").fadeIn();
-      $("#board").append("<h2>Board</h2>" + newBoard.rowArr.join(" "));
-  });
-=======
->>>>>>> 6514218f4d29e4044197396e2da12655fe23912b
-
+      $("#board").append("<h2>Board</h2>" + newBoard.rowArr.join(" "));*/
+      $("#board").fadeIn();
+      for (var i=1; i<=dice2; i++){
+        $("#board").append(newBoard["row" + i].join(" ") + "<br>")
+      }
+      console.log(newBoard);
+    });
     $("#result").fadeOut();
     $("#result").empty();
     var generatedRoom = makeRoom();
     var generatedFurniture = generatedRoom.contents;
     console.log(generatedRoom);
 
-    $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
+    $("#result").append("<div class='entered'>" + "You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:" + "</div>" + "<ul class='furniture'></ul>");
     roomFurniture(generatedRoom.contents);
 
     $("#result").fadeIn();
-    console.log(dice1);
-    console.log(dice2);
 
   });
 });
