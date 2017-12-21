@@ -88,7 +88,6 @@ function Item(space, type, name) {
 }
 
 function Board(x, y) {
-  debugger;
   for (i=1; i<=y; i++) {
     this["row" + i] = [];
     for (j=1; j<=x; j++) {
@@ -101,16 +100,13 @@ Board.prototype.populate = function(){
   var random = Math.ceil(Math.random() * dice2);
   var random1 = Math.floor(Math.random() * dice1);
   // console.log(random);
-  // console.log("poop and pee");
   for (var prop in this) {
     // console.log(this["row" + random]);
     // console.log(prop);
     if (prop === "row" + random) {
       for(var i=0; i<=dice1; i++) {
         if (i === random1) {
-          console.log(this);
-          console.log(this["row" + random1.toString()])
-          this["row" + random1] = "X";
+          this["row" + random][random1] = "X";
         }
       }
     }
@@ -198,40 +194,53 @@ $(document).ready(function(){
   $("form#room").submit(function() {
     event.preventDefault();
     $("#board").fadeOut();
-    $("#board").empty();
+    var generatedRoom = makeRoom();
+    var generatedFurniture = generatedRoom.contents;
+    console.log(generatedRoom);
     $("#result").fadeOut(function(){
+      $("#board").empty();
       $("#result").empty();
-      var generatedRoom = makeRoom();
-      var generatedFurniture = generatedRoom.contents;
+      // debugger;
+      // var generatedRoom = makeRoom();
+      // var generatedFurniture = generatedRoom.contents;
       //console.log(generatedFurniture);
       //console.log(generatedRoom);
 
-      $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
-      roomFurniture(generatedRoom.contents);
+      // $("#result").append("<h3>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:<br><br><ul class='furniture'></ul></h3>");
+      // roomFurniture(generatedRoom.contents);
       //console.log(generatedRoom.space);
       var newBoard = new Board(dice1, dice2);
-      newBoard.populate();
+      generatedFurniture.forEach(function(piece){
+        newBoard.populate();
+      });
+      // for (key in newBoard) {
+      //   if (key !== 'populate'){
+      //     console.log(newBoard[key]);
+      //     newBoard[key].forEach(function(value){
+      //       if (value === "X") {
+      //         newBoard[key] = "<span title=" + piece + ">X</span>";
+      //         console.log("ofadopj");
+      //       }
+      //     })
+      //   }
+      // }
       /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
       $("#board").fadeIn();
       $("#board").append("<h2>Board</h2>" + newBoard.rowArr.join(" "));*/
-      $("#board").fadeIn();
+
       $("#board").append("<h2>Board:</h2>");
       for (var i=1; i<=dice2; i++){
-        $("#board").append(newBoard["row" + i].join(" ") + "<br>")
+        $("#board").append(newBoard["row" + i] + "<br>")
       }
       console.log(newBoard);
+      $("#result").append("<div class='entered'>" + "You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:" + "</div>" + "<ul class='furniture'></ul>");
+      roomFurniture(generatedRoom.contents);
+      $("#board").fadeIn();
+      $("#result").fadeIn();
     });
-    $("#result").fadeOut();
-    $("#result").empty();
-    var generatedRoom = makeRoom();
-    var generatedFurniture = generatedRoom.contents;
-    console.log(generatedRoom);
 
-    $("#result").append("<div class='entered'>" + "You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:" + "</div>" + "<ul class='furniture'></ul>");
-    roomFurniture(generatedRoom.contents);
 
-    $("#result").fadeIn();
 
   });
 });

@@ -11,6 +11,7 @@ body {
 
 #board {
   display: none;
+  font-size: 16pt;
 }
 
 button:hover {
