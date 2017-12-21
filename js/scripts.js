@@ -29,9 +29,8 @@ function makeRoom(){
   };
   return newRoom;
 };
-
+//Unique Furniture objects array.
 function makeUnique(dupes){
-  //takes in an array of objects
   var result = [];
   for(var i = 0; i<dupes.length;i++){
     var dupe = dupes[i];
@@ -41,21 +40,8 @@ function makeUnique(dupes){
   return result
 };
 
-/*PROTOTYPES*/
-//Room furniture populate prototype.
-// Room.prototype.populate = function(){
-//   var area = this.space;
-//   while (area > 0){
-//     var thing = randPick(furnitureArray);
-//     if (thing.space > area){
-//       break
-//     } else {
-//       this.contents.push(thing)
-//       area -= thing.space
-//     };
-//   };
-// };
-
+//PROTOTYPES
+//Room furniture prototype.
 Room.prototype.populate = function(){
   var area = this.space;
   var dupes = [];
@@ -70,7 +56,6 @@ Room.prototype.populate = function(){
   };
   this.contents = makeUnique(dupes)
 };
-
 //Furniture on-top & inside items prototype.
 Furniture.prototype.populate =function(){
   for (var key in this){
@@ -89,14 +74,15 @@ Furniture.prototype.populate =function(){
     }
   }
 }
-/*OBJECT DEFINITIONS*/
+
+//OBJECT DEFINITIONS
 //Room constructor.
 function Room(size) {
   this.space = size;
   this.type = "generic";
   this.contents = [];
 }
-// Furniture contsructor.
+//Furniture contsructor.
 function Furniture (name, size, onTop, inside) {
   this.name = name;
   this.space = size;
@@ -113,7 +99,6 @@ function Item(space, type, name) {
   this.name = name;
   itemArray.push(this);
 }
-
 //Furniture & item objects array.
 var furnitureArray = [];
 var itemArray = [];
