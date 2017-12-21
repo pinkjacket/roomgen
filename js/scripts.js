@@ -157,14 +157,23 @@ $(document).ready(function(){
   //Create the randomly generated DND room and it's attributes.
   $("form#room").submit(function() {
     event.preventDefault();
+<<<<<<< HEAD
 
+=======
+    $("#description").hide();
+>>>>>>> sgrf
     $("#result").fadeOut();
     $("#result").empty();
     var generatedRoom = makeRoom();
     var generatedFurniture = generatedRoom.contents;
+<<<<<<< HEAD
 
     $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
 
+=======
+    console.log(generatedRoom.contents);
+    $("#result").append("<h2>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: </h2><ul class='furniture'></ul>");
+>>>>>>> sgrf
     roomFurniture(generatedRoom.contents);
     $("#result").fadeIn();
 
