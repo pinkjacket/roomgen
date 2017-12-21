@@ -29,7 +29,7 @@ function makeRoom(){
   }
   return newRoom;
 }
-/*Prototypes*/
+/*PROTOTYPES*/
 //Room furniture populate prototype.
 Room.prototype.populate = function(){
   var area = this.space;
@@ -43,19 +43,23 @@ Room.prototype.populate = function(){
     }
   }
 }
+
 /*CHANGE THIS TO USE VARIABLE*/
 
 //Furniture on-top & inside items prototype.
 Furniture.prototype.populate =function(){
   for (var key in this){
-    if (key === "onTop" || key === "inside"){
-      while (  > 0){
+    if (key === "onTop" || key === "inside") {
+      var furnishedSize = this[key];
+      while ( furnishedSize > 0){
         var thing = randPick(itemArray);
         console.log("furniture: "+this.name);
         console.log("pop: "+thing.name);
-        if (thing.space <= this[key]){
+        if (thing.space <= furnishedSize){
           this[key+"Array"].push(thing);
-          this[key] -= thing.space;
+          console.log("Size before: " + furnishedSize);
+          furnishedSize -= thing.space;
+          console.log("Size after: " + furnishedSize);
         } else {
           break;
         }
