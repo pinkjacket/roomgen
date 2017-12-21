@@ -27,7 +27,6 @@ function makeRoom(){
     var furn = newRoom.contents[j];
     furn.populate();
   };
-  console.log(newRoom);
   return newRoom;
 };
 //Unique Furniture objects array.
@@ -98,9 +97,7 @@ function Item(space, type, name) {
   this.name = name;
   itemArray.push(this);
 }
-
 //Furniture & item objects array.
-
 var furnitureArray = [];
 var itemArray = [];
 
@@ -120,9 +117,7 @@ $(document).ready(function(){
   };
   //Create the inside items header if the Furniture inside items aray is not empty.
   function insideHeader(furnitureItemsInside, itemName, idInside) {
-
     if (furnitureItemsInside.length === 0) {
-
       return ''
     } else {
       return ("<h3>inside the " + itemName + " is: </h3><ul class='item-inside' id='" + idInside + "'></ul>");
@@ -130,9 +125,7 @@ $(document).ready(function(){
   }
   //Create the on-top header if the Furniture on-top aray is not empty.
   function onTopHeader(furnitureOnTop, itemName, idOnTop) {
-
     if (furnitureOnTop.length === 0) {
-
       return ''
     } else {
       return ("<h3>and on top of the " + itemName + " is: </h3><ul class='item-on-top' id='" + idOnTop + "'></ul>")
@@ -151,32 +144,19 @@ $(document).ready(function(){
       insideHeader(furnishedItem.insideArray, furnishedItem.name, idInside) +
       onTopHeader(furnishedItem.onTopArray, furnishedItem.name, idOnTop));
       furnitureInside(furnishedItem.insideArray, idInside);
-
       furnitureOnTop(furnishedItem.onTopArray, idOnTop);
     })
   };
   //Create the randomly generated DND room and it's attributes.
   $("form#room").submit(function() {
     event.preventDefault();
-<<<<<<< HEAD
-
-=======
     $("#description").hide();
->>>>>>> sgrf
     $("#result").fadeOut();
     $("#result").empty();
     var generatedRoom = makeRoom();
     var generatedFurniture = generatedRoom.contents;
-<<<<<<< HEAD
-
-    $("#result").append("You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: <ul class='furniture'></ul>");
-
-=======
-    console.log(generatedRoom.contents);
     $("#result").append("<h2>You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has: </h2><ul class='furniture'></ul>");
->>>>>>> sgrf
     roomFurniture(generatedRoom.contents);
     $("#result").fadeIn();
-
   });
 });
