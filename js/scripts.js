@@ -26,40 +26,62 @@ function makeRoom(){
   for (var j=0; j<newRoom.contents.length; j++){
     var furn = newRoom.contents[j];
     furn.populate();
-  }
+  };
   return newRoom;
-}
+};
+
+function makeUnique(dupes){
+  //takes in an array of objects
+  var result = [];
+  for(var i = 0; i<dupes.length;i++){
+    var dupe = dupes[i];
+    var furn = new Furniture(dupe.name, dupe.space, dupe.onTop, dupe.inside)
+    result.push(furn)
+  };
+  return result
+};
+
 /*PROTOTYPES*/
 //Room furniture populate prototype.
+// Room.prototype.populate = function(){
+//   var area = this.space;
+//   while (area > 0){
+//     var thing = randPick(furnitureArray);
+//     if (thing.space > area){
+//       break
+//     } else {
+//       this.contents.push(thing)
+//       area -= thing.space
+//     };
+//   };
+// };
+
 Room.prototype.populate = function(){
   var area = this.space;
+  var dupes = [];
   while (area > 0){
     var thing = randPick(furnitureArray);
     if (thing.space > area){
       break
     } else {
-      this.contents.push(thing)
-      area -= thing.space
+      dupes.push(thing);
+      area -= thing.space;
     }
-  }
-}
-
-/*CHANGE THIS TO USE VARIABLE*/
+  };
+  this.contents = makeUnique(dupes)
+};
 
 //Furniture on-top & inside items prototype.
 Furniture.prototype.populate =function(){
   for (var key in this){
-    if (key === "onTop" || key === "inside") {
-      var furnishedSize = this[key];
-      while ( furnishedSize > 0){
+    if (key === "onTop" || key === "inside"){
+      while ( this[key] > 0){
         var thing = randPick(itemArray);
         console.log("furniture: "+this.name);
         console.log("pop: "+thing.name);
-        if (thing.space <= furnishedSize){
+        if (thing.space <= this[key]){
           this[key+"Array"].push(thing);
-          console.log("Size before: " + furnishedSize);
-          furnishedSize -= thing.space;
-          console.log("Size after: " + furnishedSize);
+          this[key] -= thing.space;
         } else {
           break;
         }
@@ -67,9 +89,7 @@ Furniture.prototype.populate =function(){
     }
   }
 }
-/*CHANGE THIS TO USE VARIABLE*/
-
-/*Object Definitions*/
+/*OBJECT DEFINITIONS*/
 //Room constructor.
 function Room(size) {
   this.space = size;
@@ -93,17 +113,7 @@ function Item(space, type, name) {
   this.name = name;
   itemArray.push(this);
 }
-//Board constructor.
-function Board(x, y) {
-  this.rowArr = [];
-  for (var j=1; j<=y; j++){
-    var innerArray = [];
-    for (var i=1; i<=x; i++) {
-      innerArray.push("O");
-    }
-    this.rowArr.push(innerArray + '<br>');
-  }
-}
+
 //Furniture & item objects array.
 var furnitureArray = [];
 var itemArray = [];
