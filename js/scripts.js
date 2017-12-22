@@ -1,5 +1,6 @@
 var dice1;
 var dice2;
+var generatedFurniture;
 
 //Loose Helper Files
 function randPick(arr){
@@ -16,8 +17,8 @@ function dice(){
 function size(){
   dice1 = dice();
   dice2 = dice();
-  console.log(dice1);
-  console.log(dice2);
+//  console.log(dice1);
+//  console.log(dice2);
   var roomSize = (dice1 * dice2);
   return roomSize;
 
@@ -31,7 +32,7 @@ function makeRoom(){
     furn.populate();
   }
   return newRoom;
-  console.log(newRoom);
+//  console.log(newRoom);
 }
 //Prototypes-------------------------------------------------------------------------------
 Room.prototype.populate = function(){
@@ -97,20 +98,30 @@ function Board(x, y) {
 }
 
 Board.prototype.populate = function(){
-  var random = Math.ceil(Math.random() * dice2);
-  var random1 = Math.floor(Math.random() * dice1);
+  console.log(dice1);
+  console.log(dice2);
+  console.log(dice1 * dice2);
   // console.log(random);
-  for (var prop in this) {
-    // console.log(this["row" + random]);
-    // console.log(prop);
-    if (prop === "row" + random) {
-      for(var i=0; i<=dice1; i++) {
-        if (i === random1) {
-          this["row" + random][random1] = "X";
-        }
+  //for (i=0; i < generatedFurniture.length; i++) {
+
+      for(i = 0; i < generatedFurniture.length; i++) {
+        var random = Math.ceil(Math.random() * dice2);
+        var random1 = Math.floor(Math.random() * dice1);
+        if (this["row" + random][random1] !== "X"){
+        this["row" + random][random1] = "X";
+      } else {
+        i--;
       }
-    }
-  }
+    // if (prop === "row" + random) {
+    //   for(var i=1; i<=dice1; i++) {
+    //     if (i === random1 && this["row" + random][random1] !== "X") {
+    //       console.log(this["row" + random][random1]);
+    //       this["row" + random][random1] = "X";
+    //     }
+    //   }
+    // }
+  }//}
+
 /*  var newRowArr = this.rowArr;
   arr.forEach(function(element) {
     var arrayElementColumn = Math.floor(Math.random() * dice1);
@@ -195,8 +206,9 @@ $(document).ready(function(){
     event.preventDefault();
     $("#board").fadeOut();
     var generatedRoom = makeRoom();
-    var generatedFurniture = generatedRoom.contents;
-    console.log(generatedRoom);
+    generatedFurniture = generatedRoom.contents;
+    console.log(generatedFurniture);
+    //console.log(generatedRoom);
     $("#result").fadeOut(function(){
       $("#board").empty();
       $("#result").empty();
@@ -210,22 +222,39 @@ $(document).ready(function(){
       // roomFurniture(generatedRoom.contents);
       //console.log(generatedRoom.space);
       var newBoard = new Board(dice1, dice2);
+      newBoard.populate();
+      console.log(newBoard);
+      console.log(generatedFurniture);
       generatedFurniture.forEach(function(piece){
-        newBoard.populate();
-
-      for (key in newBoard) {
-        console.log(Array.isArray(newBoard[key]))
-        if (Array.isArray(newBoard[key])) {
-          console.log(newBoard[key]);
-          newBoard[key].forEach(function(value){
+        for (key in newBoard) {
+          //console.log(Array.isArray(newBoard[key]))
+          if (Array.isArray(newBoard[key])) {
+            console.log(newBoard[key]);
+            for(value of newBoard[key]){
             console.log(value)
             if (value === "X") {
-              newBoard[key] += "<span title=" + piece.name + ">X</span>";
+              newBoard[key][newBoard[key].indexOf(value)] = "<span title=" + piece.name + ">X</span>";
               console.log("ofadopj");
+              break;
             }
-          })
-        }
-      }
+          // })
+          //   newBoard[key].forEach(function(value){
+          //     console.log(value);
+          //     console.log(newBoard[key]);
+          //     if (value.match(/(\bX\b)/)) {
+          //       debugger;
+          //       newBoard[key][newBoard[key].indexOf(value)] = '<span title="' + piece.name + '">X</span>';
+          //       console.log(newBoard[key]);
+          //       // newBoard[key].forEach(function(thing){
+          //       //   if (thing === "X") {
+          //       //     newBoard[key][newBoard[key].indexOf(thing)] = '<span title="' + piece.name + '">X</span>'
+          //       //   }
+          //       // })
+          //       console.log(newBoard[key]);
+          //     }
+          //   })
+        };
+      }}
       });
       /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
@@ -236,7 +265,7 @@ $(document).ready(function(){
       for (var i=1; i<=dice2; i++){
         $("#board").append(newBoard["row" + i] + "<br>")
       }
-      console.log(newBoard);
+  //    console.log(newBoard);
       $("#result").append("<div class='entered'>" + "You have entered a room that is " + generatedRoom.space * 5 + " square feet. The room has:" + "</div>" + "<ul class='furniture'></ul>");
       roomFurniture(generatedRoom.contents);
       $("#board").fadeIn();
