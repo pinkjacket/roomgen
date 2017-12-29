@@ -89,34 +89,40 @@ function Item(space, type, name) {
 
 function Board(x, y) {
 //  debugger;
-  var board = {};
   for (i=1; i<=y; i++) {
-    board["row" + i] = [];
+    this["row" + i] = [];
     for (j=1; j<=x; j++) {
-      board["row" + i].push("_");
+      this["row" + i].push("_");
     }
   }
-  return board;
 }
 
-Board.prototype.populate = function(){
-  var random = Math.ceil(Math.random() * dice2);
-  var random1 = Math.floor(Math.random() * dice1);
-  // console.log(random);
-  // console.log("poop and pee");
-  for (var prop in this) {
-    // console.log(this["row" + random]);
-    // console.log(prop);
-    if (prop === "row" + random) {
-      for(var i=0; i<=dice1; i++) {
-        if (i === random1) {
-          console.log(this);
-          console.log(this["row" + random1.toString()])
-          this["row" + random1] = "X";
-        }
-      }
+
+
+Board.prototype.populate = function(furnitureAmount){
+  for (i = 0; i <= furnitureAmount; i++){
+    var randomRow = Math.floor(Math.random() * dice2) + 1;
+    var randomColumn = Math.floor(Math.random() * dice1);
+    console.log(this["row" + randomRow]);
+    if (this["row" + randomRow][randomColumn] !== "X") {
+      this["row" + randomRow][randomColumn] = "X";
+    } else {
+      i--;
     }
   }
+  // for (var prop in this) {
+  //   // console.log(this["row" + random]);
+  //   // console.log(prop);
+  //   if (prop === "row" + random) {
+  //     for(var i=0; i<=dice1; i++) {
+  //       if (i === random1) {
+  //         console.log(this);
+  //         console.log(this["row" + random1.toString()])
+  //         this["row" + random1] = "X";
+  //       }
+  //     }
+  //   }
+  // }
 /*  var newRowArr = this.rowArr;
   arr.forEach(function(element) {
     var arrayElementColumn = Math.floor(Math.random() * dice1);
@@ -214,7 +220,7 @@ $(document).ready(function(){
       // roomFurniture(generatedRoom.contents);
       //console.log(generatedRoom.space);
       var newBoard = new Board(dice1, dice2);
-  //    newBoard.populate();
+      newBoard.populate(generatedFurniture.length - 1);
       console.log(newBoard);
       /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
@@ -227,6 +233,7 @@ $(document).ready(function(){
       for (var i=1; i<=dice2; i++){
         $("#board").append(newBoard["row" + i].join(" ") + "<br>")
       }
+
       $("#board").fadeIn();
       console.log(newBoard);
     });
