@@ -110,6 +110,7 @@ Board.prototype.populate = function(furnitureAmount){
       i--;
     }
   }
+
   // for (var prop in this) {
   //   // console.log(this["row" + random]);
   //   // console.log(prop);
@@ -222,6 +223,29 @@ $(document).ready(function(){
       var newBoard = new Board(dice1, dice2);
       newBoard.populate(generatedFurniture.length - 1);
       console.log(newBoard);
+      // generatedFurniture.forEach(function(piece){
+      //   for (key in newBoard) {        //console.log(Array.isArray(newBoard[key]))
+      //     if (Array.isArray(newBoard[key])) {
+      //       console.log(newBoard[key]);
+      //       for(value of newBoard[key]){
+      //         if (value === "X") {
+      //           newBoard[key][newBoard[key].indexOf(value)] = "<span title=" + piece.name + ">X</span>";
+      //         }
+      //       }
+      //     }
+      //   }
+      // })
+      // for (i = 0; i < generatedFurniture.length - 1; i++) {
+      //   var randomRow = Math.floor(Math.random() * dice2) + 1;
+      //   var randomColumn = Math.floor(Math.random() * dice1);
+      //   if (newBoard["row" + randomRow][randomColumn] === "X") {
+      //     newBoard["row" + randomRow][randomColumn].addClass("marked" + i);
+      //     $(".marked" + i).attr("title", generatedFurniture[i].name)
+      //   } else {
+      //     i--;
+      //   }
+      // }
+      console.log(newBoard);
       /*console.log(newBoard.rowArr[0])
       newBoard.populate(generatedFurniture);
       $("#board").fadeIn();
@@ -231,8 +255,27 @@ $(document).ready(function(){
       $("#result").fadeIn();
       $("#board").append("<h2>Board:</h2>");
       for (var i=1; i<=dice2; i++){
-        $("#board").append(newBoard["row" + i].join(" ") + "<br>")
+        $("#board").append(newBoard["row" + i].join(" ") + "<br>").addClass("board" + i);
+        for (var i=1; i <= dice1; i++) {
+          $(".board" + i).addClass("wide" + i);
+        }
       }
+
+      // generatedFurniture.forEach(function(piece) {
+      //   for (i=0; i <= dice2; i++){
+      //     for (j=0; j <= dice1; j++) {
+      //       if ($(".board" + i) + $(".wide" + j) === "X") {
+      //         console.log('fads');
+      //         $(".board" + i) + $(" .wide" + j).attr("title", piece.name)
+      //       }
+      //     }
+      //   }
+        // var randomRow = Math.floor(Math.random() * dice2) + 1;
+        // var randomColumn = Math.floor(Math.random() * dice1);
+        // if ($(".board" + randomColumn).children().text("X")) {
+        //   $(".board" + randomColumn " .wide" + randomRow).attr("title")
+        // }
+      })
 
       $("#board").fadeIn();
       console.log(newBoard);
@@ -240,5 +283,4 @@ $(document).ready(function(){
 
 
 
-  });
 });
