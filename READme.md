@@ -44,4 +44,4 @@ _There are no known bugs at this time. Please let any of the [Authors](mailto:ry
 
 ### LICENSE
 
-Copyright (c) 2017 **_This software is licensed under the MIT license_**
+Copyright (c) 2017 **_This software is licensed under the MIT license_** 
